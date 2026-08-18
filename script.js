@@ -65,6 +65,14 @@ function nextPage() {
     }
 }
 
+function previousPage() {
+
+    if (currentPage > 1) {
+        showPage(currentPage - 1);
+    }
+
+}
+
 
 /* =========================
    QUIZ QUESTIONS
@@ -298,6 +306,8 @@ function openSpotify() {
 
 window.nextPage =
     nextPage;
+
+window.previousPage = previousPage;
 
 window.startQuiz =
     startQuiz;

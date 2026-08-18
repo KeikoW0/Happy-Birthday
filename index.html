@@ -74,9 +74,7 @@
 
         <p class="small-title">A LITTLE SONGS FOR YOU</p>
 
-        <h1>
-          I picked songs for you.
-        </h1>
+        <h1>I picked songs for you.</h1>
 
         <!-- SPOTIFY -->
 
@@ -100,10 +98,14 @@
           </iframe>
         </div>
 
-        <button onclick="nextPage()">
-          Keep going
-          <span>→</span>
-        </button>
+        <div class="page-buttons">
+          <button class="back-button" onclick="previousPage()">← Back</button>
+
+          <button onclick="nextPage()">
+            Keep going
+            <span>→</span>
+          </button>
+        </div>
       </div>
     </main>
 
@@ -113,14 +115,12 @@
     ========================== -->
 
     <main class="page" id="page3">
-      <div class="card">
+      <div class="card memory-card">
         <div class="tiny-heart">♡</div>
 
         <p class="small-title">LITTLE THINGS I LOVE</p>
 
         <h1>A few things I like about you.</h1>
-
-        <p class="message">Someting I like, don't stop doing it!</p>
 
         <div class="memory-list">
           <div class="memory-item">
@@ -135,14 +135,8 @@
           <div class="memory-item">
             <span>♡</span>
             <p>
-              I love it when you make times for me, despite your busy schedule.
-            </p>
-          </div>
-
-          <div class="memory-item">
-            <span>♡</span>
-            <p>
-              I love it when you always have something to say. It made me feel cared of.
+              I love it when you make times for me, despite your busy schedule. I love it when you always have something to say. It made me feel
+              cared for.
             </p>
           </div>
 
@@ -163,10 +157,14 @@
           </div>
         </div>
 
-        <button onclick="nextPage()">
-          There's more
-          <span>→</span>
-        </button>
+        <div class="page-buttons">
+          <button class="back-button" onclick="previousPage()">← Back</button>
+
+          <button onclick="nextPage()">
+            There's more
+            <span>→</span>
+          </button>
+        </div>
       </div>
     </main>
 
@@ -181,23 +179,25 @@
 
         <p class="small-title">I WANT TO KNOW YOU BETTER</p>
 
-        <h1>
-          Tell me about you.
-        </h1>
+        <h1>Tell me about you.</h1>
 
         <p class="message">
-          Okay, now it's your turn.
+          Your turn now!
           <br />
           Just share whatever you want. ♡
           <br />
           (Also you can't save the page. Like go back to answer it later, so
-          make sure to answer the questions in one go.)
+          make sure to answer the questions in one go. Whenever you ready.)
         </p>
 
-        <button onclick="startQuiz()">
-          Let's go
-          <span>→</span>
-        </button>
+        <div class="page-buttons">
+          <button class="back-button" onclick="previousPage()">← Back</button>
+
+          <button onclick="startQuiz()">
+            Let's go
+            <span>→</span>
+          </button>
+        </div>
       </div>
     </main>
 
@@ -248,9 +248,9 @@
           I'm grateful for every conversation, every little thing you've shared,
           and every moment I've gotten to know you.
           <br />
-          You know, I was so desperate for a friend or maybe more, and I was so lucky to
-          find you. I'm very glad I went to the Pinterest post and having the
-          courage to text you first. I'm glad I can get to know you.
+          You know, I was so desperate for a friend or maybe more, and I was so
+          lucky to find you. I'm very glad I went to the Pinterest post and
+          having the courage to text you first. I'm glad I can get to know you.
           <br />
           I’m honestly scared that our connection will only last a few months,
           since that’s how my past relationships have been. But until now, I
@@ -260,7 +260,11 @@
           Happy birthday, Sanjukta. I hope you never get tired of me. Love ya!
         </p>
 
-        <button onclick="openSpotify()">View the playlist!</button>
+        <div class="page-buttons">
+          <button class="back-button" onclick="previousPage()">← Back</button>
+
+          <button onclick="openSpotify()">View the playlist!</button>
+        </div>
       </div>
     </main>
 
