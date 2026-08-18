@@ -850,104 +850,432 @@ button:hover span {
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* =====================================================
+   MOBILE FIX
+===================================================== */
 
 @media (max-width: 600px) {
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        min-height: 100svh;
+    }
+
+
+    /* =========================
+       PAGE
+    ========================= */
+
+    .page {
+        width: 100%;
+        min-height: 100svh;
+
+        padding: 70px 15px 35px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        align-items: flex-start;
+    }
+
+
+    .page.active {
+        display: flex;
+    }
+
+
+    /* =========================
+       PAGE INDICATOR
+    ========================= */
+
+    .page-indicator {
+        position: fixed;
+
+        top: 18px;
+        right: 18px;
+
+        z-index: 100;
+
+        font-size: 11px;
+
+        padding: 7px 12px;
+
+        border-radius: 30px;
+
+        background: rgba(255, 255, 255, 0.25);
+
+        color: white;
+
+        backdrop-filter: blur(10px);
+    }
+
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .card {
+
+        width: 100%;
+        max-width: 430px;
+
+        margin: auto;
+
+        padding: 42px 22px;
+
+        border-radius: 25px;
+
+        box-sizing: border-box;
+    }
+
+
+    /* =========================
+       SMALL HEART
+    ========================= */
+
+    .tiny-heart {
+
+        font-size: 27px;
+
+        margin-bottom: 18px;
+    }
+
+
+    /* =========================
+       SMALL TITLE
+    ========================= */
+
+    .small-title {
+
+        font-size: 8px;
+
+        letter-spacing: 2.5px;
+
+        line-height: 1.6;
+
+        margin-bottom: 18px;
+    }
+
+
+    /* =========================
+       HEADING
+    ========================= */
+
+    h1 {
+
+        font-size: clamp(36px, 11vw, 52px);
+
+        line-height: 1.05;
+
+        letter-spacing: -1.5px;
+
+        word-wrap: break-word;
+    }
+
+
+    h1 span {
+
+        margin-top: 6px;
+    }
+
+
+    /* =========================
+       MESSAGE
+    ========================= */
+
+    .message {
+
+        width: 100%;
+
+        max-width: 340px;
+
+        margin: 22px auto;
+
+        font-size: 13px;
+
+        line-height: 1.75;
+    }
+
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    button {
+
+        width: auto;
+        max-width: 100%;
+
+        padding: 13px 22px;
+
+        font-size: 11px;
+
+        margin-top: 5px;
+    }
+
+
+    /* =========================
+       FLOATING DECORATION
+    ========================= */
+
+    .floating-hearts span {
+
+        font-size: 45px;
+    }
+
+
+    /* =========================
+       MUSIC PAGE
+    ========================= */
+
+    .music-card {
+
+        padding: 38px 18px;
+    }
+
+
+    .spotify-box {
+
+        width: 100%;
+
+        margin: 20px auto;
+    }
+
+
+    .spotify-box iframe {
+
+        width: 100%;
+
+        height: 152px;
+
+        border-radius: 12px;
+    }
+
+
+    /* =========================
+       MEMORY LIST
+    ========================= */
+
+    .memory-list {
+
+        width: 100%;
+
+        margin: 20px auto;
+    }
+
+
+    .memory-item {
+
+        padding: 14px;
+
+        margin-bottom: 12px;
+
+        border-radius: 15px;
+
+        text-align: left;
+    }
+
+
+    .memory-item p {
+
+        font-size: 12px;
+
+        line-height: 1.65;
+    }
+
+
+    .memory-item span {
+
+        font-size: 18px;
+    }
+
+
+    /* =========================
+       QUIZ
+    ========================= */
+
+    .quiz-card {
+
+        padding: 38px 20px;
+    }
+
+
+    .quiz-number {
+
+        font-size: 11px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .quiz-card h2 {
+
+        font-size: clamp(23px, 7vw, 32px);
+
+        line-height: 1.25;
+
+        margin-bottom: 22px;
+
+        word-wrap: break-word;
+    }
+
+
+    /* =========================
+       ANSWER BOX
+    ========================= */
+
+    .answer-container {
+
+        width: 100%;
+
+        position: relative;
+
+        margin: 15px 0 20px;
+    }
+
+
+    #answer {
+
+        width: 100%;
+
+        min-height: 150px;
+
+        max-height: 250px;
+
+        padding: 17px;
+
+        padding-right: 40px;
+
+        border-radius: 17px;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+
+        resize: vertical;
+
+        box-sizing: border-box;
+    }
+
+
+    .answer-container > span {
+
+        position: absolute;
+
+        right: 15px;
+
+        bottom: 13px;
+
+        font-size: 16px;
+
+        pointer-events: none;
+    }
+
+
+    /* =========================
+       LAST PAGE
+    ========================= */
+
+    .big-heart {
+
+        font-size: 50px;
+
+        margin-bottom: 12px;
+    }
+
+
+    /* =========================
+       LAST PAGE TEXT
+    ========================= */
+
+    #page6 .message {
+
+        max-height: none;
+
+        overflow: visible;
+
+        text-align: center;
+
+        font-size: 12px;
+
+        line-height: 1.8;
+    }
+
+
+    #page6 h1 {
+
+        font-size: clamp(30px, 9vw, 44px);
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
 
     .page {
 
         padding:
-            20px;
-    }
-
-
-    .page-indicator {
-
-        top:
-            20px;
-
-        right:
-            20px;
+            65px
+            10px
+            25px;
     }
 
 
     .card {
 
         padding:
-            50px
-            25px;
+            35px
+            18px;
 
-        border-radius:
-            28px;
+        border-radius: 22px;
     }
 
 
     h1 {
 
-        font-size:
-            clamp(28px, 11vw, 40px);
+        font-size: 35px;
 
-        letter-spacing:
-            -1px;
+        letter-spacing: -1px;
     }
 
 
     .message {
 
-        font-size:
-            13px;
-    }
+        font-size: 12px;
 
-
-    .small-title {
-
-        letter-spacing:
-            2px;
+        line-height: 1.7;
     }
 
 
     button {
 
         padding:
-            14px
-            23px;
-    }
+            12px
+            19px;
 
-
-    .spotify-box {
-
-        padding:
-            10px;
-    }
-
-
-    .memory-item {
-
-        font-size:
-            12px;
+        font-size: 10px;
     }
 
 
     .quiz-card h2 {
 
-        font-size:
-            29px;
+        font-size: 22px;
     }
 
 
-    .answer-container textarea {
+    #answer {
 
-        height:
-            105px;
-    }
-
-
-    .floating-hearts span {
-
-        font-size:
-            50px;
+        min-height: 130px;
     }
 
 }
