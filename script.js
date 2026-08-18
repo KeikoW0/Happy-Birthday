@@ -5,8 +5,8 @@
 import { db } from "./firebase.js";
 
 import {
-    collection,
-    addDoc,
+    doc,
+    setDoc,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
@@ -134,35 +134,33 @@ function startQuiz() {
    SAVE ANSWER
 ========================= */
 
-async function saveAnswer(
-    questionIndex,
-    userAnswer
-) {
+async function saveAnswer(questionIndex, userAnswer) {
 
     try {
 
-        await addDoc(
-            collection(
-                db,
-                "birthday_answers"
-            ),
+        const answerRef = doc(
+            db,
+            "birthday_answers",
+            "sanjukta"
+        );
+
+        await setDoc(
+            answerRef,
             {
-                questionNumber:
-                    questionIndex + 1,
+                [`answer${String(questionIndex + 1).padStart(2, "0")}`]: {
+                    question: questions[questionIndex],
+                    answer: userAnswer
+                },
 
-                question:
-                    questions[questionIndex],
-
-                answer:
-                    userAnswer,
-
-                createdAt:
-                    serverTimestamp()
+                updatedAt: serverTimestamp()
+            },
+            {
+                merge: true
             }
         );
 
         console.log(
-            "Answer saved successfully!"
+            `Answer ${questionIndex + 1} saved!`
         );
 
         return true;
