@@ -216,7 +216,7 @@ async function nextQuestion() {
     if (userAnswer === "") {
 
         alert(
-            "Tell me something first ♡"
+            "You won't tell me anything? :("
         );
 
         return;
