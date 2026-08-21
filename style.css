@@ -911,7 +911,7 @@ button:hover span {
 
 /* Scrollbar */
 
-.wide-card::-webkit-scrollbar {
+.wide-card::-webkit-scrollbar{
     width: 5px;
 }
 
@@ -920,8 +920,8 @@ button:hover span {
 }
 
 .wide-card::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.3);
-    border-radius: 10px;
+    background: rgba(141, 71, 71, 0.3);
+    border-radius: 1px;
 }
 
 
@@ -941,6 +941,97 @@ button:hover span {
     margin-top: 20px;
 }
 
+/* =========================
+   FINAL QUESTION
+========================= */
+
+.final-question {
+    margin: 35px auto 25px;
+    text-align: center;
+}
+
+.final-question-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.radio-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.radio-option {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 5px 10px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.radio-option:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+.radio-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.radio-custom {
+    width: 13px;
+    height: 13px;
+
+    border: 1.5px solid white;
+    border-radius: 50%;
+
+    display: inline-block;
+
+    position: relative;
+}
+
+.radio-option input:checked + .radio-custom::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    top: 2px;
+    left: 2px;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+.radio-option:has(input:checked) {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: white;
+}
 /* =====================================================
    MOBILE VERSION
 ===================================================== */

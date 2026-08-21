@@ -1,297 +1,398 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Happy Birthday, Sanjukta!</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
+  <title>Happy Birthday, Sanjukta!</title>
 
-  <body>
-    <!-- =========================
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- =========================
          FLOATING HEARTS / STARS
     ========================== -->
 
-    <div class="floating-hearts">
-      <span>♡</span>
-      <span>★</span>
-      <span>♡</span>
-      <span>★</span>
-      <span>♡</span>
-      <span>★</span>
-      <span>♡</span>
-      <span>★</span>
-      <span>♡</span>
-      <span>★</span>
-    </div>
+  <div class="floating-hearts">
+    <span>♡</span>
+    <span>★</span>
+    <span>♡</span>
+    <span>★</span>
+    <span>♡</span>
+    <span>★</span>
+    <span>♡</span>
+    <span>★</span>
+    <span>♡</span>
+    <span>★</span>
+  </div>
 
-    <!-- =========================
+  <!-- =========================
          PAGE NUMBER
     ========================== -->
 
-    <div class="page-indicator"><span id="pageNumber">01</span> / 06</div>
+  <div class="page-indicator"><span id="pageNumber">01</span> / 06</div>
 
-    <!-- =========================
+  <!-- =========================
          PAGE 1
          BIRTHDAY
     ========================== -->
 
-    <main class="page active" id="page1">
-      <div class="card">
-        <div class="tiny-heart">♡</div>
+  <main class="page active" id="page1">
+    <div class="card">
+      <div class="tiny-heart">♡</div>
 
-        <p class="small-title">A LITTLE SOMETHING FOR YOU</p>
+      <p class="small-title">A LITTLE SOMETHING FOR YOU</p>
 
-        <h1>
-          শুভ জন্মদিন,
-          <span>Sanjukta.</span>
-        </h1>
+      <h1>
+        শুভ জন্মদিন,
+        <span>Sanjukta.</span>
+      </h1>
 
-        <p class="message">
-          Did I say it right? I use Google. So... "Shubho Jonmodin" ??
-          <br />
-          Take your time and enjoy it. ♡
-          <br />
-        </p>
+      <p class="message">
+        Did I say it right? I use Google. So... "Shubho Jonmodin" ??
+        <br />
+        Take your time and enjoy it. ♡
+        <br />
+      </p>
 
-        <button onclick="nextPage()">
-          Open your surprise
-          <span>→</span>
-        </button>
-      </div>
-    </main>
+      <button onclick="nextPage()">
+        Open your surprise
+        <span>→</span>
+      </button>
+    </div>
+  </main>
 
-    <!-- =========================
+  <!-- =========================
          PAGE 2
          MUSIC
     ========================== -->
 
-    <main class="page" id="page2">
-      <div class="card music-card">
-        <div class="tiny-heart">♡</div>
+  <main class="page" id="page6">
+    <div class="card music-card">
+      <div class="tiny-heart">♡</div>
 
-        <p class="small-title">A LITTLE SONGS FOR YOU</p>
+      <p class="small-title">A LITTLE SONGS FOR YOU</p>
 
-        <h1>I picked songs for you.</h1>
+      <h1>I picked songs for you.</h1>
 
-        <!-- SPOTIFY -->
+      <!-- SPOTIFY -->
 
-        <div class="spotify-box">
-          <div class="spotify-label">♡ SONGS FOR YOU ♡</div>
+      <div class="spotify-box">
+        <div class="spotify-label">♡ SONGS FOR YOU ♡</div>
 
-          <iframe
-            src="https://open.spotify.com/embed/playlist/5uGXaSNUHvGUvBSVPNhz1v?utm_source=generator&si=a9ea1a9f2f0d4256"
-            width="100%"
-            height="152"
-            frameborder="0"
-            allow="
+        <iframe
+          src="https://open.spotify.com/embed/playlist/5uGXaSNUHvGUvBSVPNhz1v?utm_source=generator&si=a9ea1a9f2f0d4256"
+          width="100%" height="152" frameborder="0" allow="
               autoplay;
               clipboard-write;
               encrypted-media;
               fullscreen;
               picture-in-picture;
-            "
-            loading="eager"
-          >
-          </iframe>
-        </div>
-
-        <div class="page-buttons">
-          <button class="back-button" onclick="previousPage()">← Back</button>
-
-          <button onclick="nextPage()">
-            Keep going
-            <span>→</span>
-          </button>
-        </div>
+            " loading="eager">
+        </iframe>
       </div>
-    </main>
 
-    <!-- =========================
+      <div class="page-buttons">
+        <button class="back-button" onclick="previousPage()">← Back</button>
+
+        <button onclick="nextPage()">
+          Keep going
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================
          PAGE 3
          WHAT I KNOW
     ========================== -->
 
-    <main class="page" id="page3">
-      <div class="card memory-card">
-        <div class="tiny-heart">♡</div>
+  <main class="page" id="page3">
+    <div class="card memory-card">
+      <div class="tiny-heart">♡</div>
 
-        <p class="small-title">LITTLE THINGS I LOVE</p>
+      <p class="small-title">LITTLE THINGS I LOVE</p>
 
-        <h1>A few things I like about you.</h1>
+      <h1>A few things I like about you.</h1>
 
-        <div class="memory-list">
-          <div class="memory-item">
-            <span>♡</span>
-            <p>
-              You like writing poems and stories, you also like drawing. It
-              makes you such an interesting person. And maybe you can show me
-              some of your work sometime.
-            </p>
-          </div>
-
-          <div class="memory-item">
-            <span>♡</span>
-            <p>
-              I love it when you make times for me, despite your busy schedule.
-              And you always have something to say. It made me feel
-              cared for.
-            </p>
-          </div>
-
-          <div class="memory-item">
-            <span>♡</span>
-            <p>
-              I love it when you flirt with me. Even tho I usually only respond
-              with "HIHI", since I don't know how to say.
-            </p>
-          </div>
-
-          <div class="memory-item">
-            <p>
-              And a little note... I love your smile, your doe eyes, everything
-              about you. You actually so attractive, exactly my type. You're all
-              I've ever wanted.
-            </p>
-          </div>
+      <div class="memory-list">
+        <div class="memory-item">
+          <span>♡</span>
+          <p>
+            You like writing poems and stories, you also like drawing. It
+            makes you such an interesting person. And maybe you can show me
+            some of your work sometime.
+          </p>
         </div>
 
-        <div class="page-buttons">
-          <button class="back-button" onclick="previousPage()">← Back</button>
+        <div class="memory-item">
+          <span>♡</span>
+          <p>
+            I love it when you make times for me, despite your busy schedule.
+            And you always have something to say. It made me feel cared for.
+          </p>
+        </div>
 
-          <button onclick="nextPage()">
-            There's more
-            <span>→</span>
-          </button>
+        <div class="memory-item">
+          <span>♡</span>
+          <p>
+            I love it when you flirt with me. Even tho I usually only respond
+            with "HIHI", since I don't know how to say.
+          </p>
+        </div>
+
+        <div class="memory-item">
+          <p>
+            And a little note... I love your smile, your doe eyes, everything
+            about you. You actually so attractive, exactly my type. You're all
+            I've ever wanted.
+          </p>
         </div>
       </div>
-    </main>
 
-    <!-- =========================
+      <div class="page-buttons">
+        <button class="back-button" onclick="previousPage()">← Back</button>
+
+        <button onclick="nextPage()">
+          There's more
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================
          PAGE 4
          QUIZ INTRO
     ========================== -->
 
-    <main class="page" id="page4">
-      <div class="card">
-        <div class="tiny-heart">♡</div>
+  <main class="page" id="page4">
+    <div class="card">
+      <div class="tiny-heart">♡</div>
 
-        <p class="small-title">I WANT TO KNOW YOU BETTER</p>
+      <p class="small-title">I WANT TO KNOW YOU BETTER</p>
 
-        <h1>Tell me about you.</h1>
+      <h1>Tell me about you.</h1>
 
-        <p class="message">
-          Your turn now!
-          <br />
-          Just share whatever you want. ♡
-          <br />
-          (Also you can't save the page. Like go back to answer it later, so
-          make sure to answer the questions in one go. Whenever you ready.)
-        </p>
+      <p class="message">
+        Your turn now!
+        <br />
+        Just share whatever you want. ♡
+        <br />
+        (Also you can't save the page. Like go back to answer it later, so
+        make sure to answer the questions in one go. Whenever you ready.)
+      </p>
 
-        <div class="page-buttons">
-          <button class="back-button" onclick="previousPage()">← Back</button>
+      <div class="page-buttons">
+        <button class="back-button" onclick="previousPage()">← Back</button>
 
-          <button onclick="startQuiz()">
-            Let's go
-            <span>→</span>
-          </button>
-        </div>
+        <button onclick="startQuiz()">
+          Let's go
+          <span>→</span>
+        </button>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <!-- =========================
+  <!-- =========================
          PAGE 5
          QUIZ
     ========================== -->
 
-    <main class="page" id="page5">
-      <div class="card quiz-card">
-        <div class="tiny-heart">♡</div>
+  <main class="page" id="page5">
+    <div class="card quiz-card">
+      <div class="tiny-heart">♡</div>
 
-        <p class="small-title">JUST BETWEEN US</p>
+      <p class="small-title">JUST BETWEEN US</p>
 
-        <div class="quiz-number"><span id="questionNumber">01</span> / 09</div>
+      <div class="quiz-number"><span id="questionNumber">01</span> / 09</div>
 
-        <h2 id="questionText">
-          What's something you've been really into lately?
-        </h2>
+      <h2 id="questionText">
+        What's something you've been really into lately?
+      </h2>
 
-        <div class="answer-container">
-          <textarea id="answer" placeholder="Tell me anything... ♡"> </textarea>
+      <div class="answer-container">
+        <textarea id="answer" placeholder="Tell me anything... ♡"> </textarea>
 
-          <span> ♡ </span>
-        </div>
-
-        <button onclick="nextQuestion()">
-          Next
-          <span>→</span>
-        </button>
+        <span> ♡ </span>
       </div>
-    </main>
 
-    <!-- =========================
+      <button onclick="nextQuestion()">
+        Next
+        <span>→</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- =========================
          PAGE 6
          GRATITUDE
     ========================== -->
 
-    <main class="page" id="page6">
-      <div class="card wide-card">
-        <h1>What I felt from deep in my heart.</h1>
+  <main class="page" id="page2">
+    <div class="card wide-card">
+      <h1>What I felt from deep in my heart.</h1>
+      <br />
+      <div class="tiny-heart">♡♡♡</div>
+      <p class="message">
+        I'm grateful for every conversation, every little thing you've shared,
+        and every moment I've gotten to know you.
+        <br /><br />
 
-        <p class="message">
-          I'm grateful for every conversation, every little thing you've shared,
-          and every moment I've gotten to know you.
-          <br /><br />
+        I hope you get everything you've ever wanted. I wish you all the best.
+        I wish you can be successful in your life. I wish we can meet, you
+        know? I kinda wish you'll study or work abord on other country, so we
+        like can meet. And we'll be independent and have our own life. And
+        that's make our visits more easy, I think. But, of course, that
+        choices are up to you. And for now, I only wish you all the best. Good
+        luck with your studies and don't forget to rest alright? I'm a little
+        worried.
+        <br /><br />
 
-          I hope you get everything you've ever wanted. I wish you all the best.
-          <br /><br />
+        Previously I want to make you a song playlist only for you brithday.
+        But you don't really listen to songs, do you? So... I made this simple
+        website only using HTML, CSS, Javascript, and Firebase to see your
+        answers! Hope you enjoy it! And you can see the playlist I made for
+        you under this page, on the "View the playlist!" button.
+      </p>
 
-          You know, I was so desperate for a friend or maybe more, and I was so
-          lucky to find you. I'm very glad I went to the Pinterest post and
-          having the courage to text you first. I'm glad I can get to know you.
-          <br /><br />
+      <div class="tiny-heart">♡♡♡</div>
 
-          We have only known each other for a few weeks, but somehow, you've
-          already become someone really important to me. I already feel really
-          comfortable talking to you. And I'm honestly scared that our
-          connection will only last a few months, since that’s how my past
-          relationships have been. But until now, I feel like I can trust you. I
-          feel like I can be myself around you. I always catch myself waiting
-          for your texts.
-          <br /><br />
+      <p class="message">
+        I'm gonna answer my questions tho. So this page is longer. Skip to the next heart if you don't want to read it!
+        It's all fine, just enjoy.
+        <br /> <br />
 
-          And I feel like our relationship is going to be something really
-          special. You're more than just an online friend to me. You're more
-          than just a friend to keep me company or whenever I'm bored. You're
-          more than just someone I talk to. You've become someone I genuinely
-          care about. Hell, you're even more than just a friend to me.
-          <br /><br />
+        So.
+        <br />
+        Question 1: "What's something you're really looking forward to?"
+        <br />
+        For now, It's for it to be 10th September. So I can show you this website, the playlist I made for you, and your
+        answers!
+        <br /> <br />
 
-          I really want to be your girlfriend. I want to be yours and you to be
-          mine. This website is my way of telling you that. I want to be with
-          you. So, would you like to be my girlfriend?
-          <br /><br />
+        Question 2: "What's a random thing you're really passionate or obsessed with?"
+        <br />
+        answer
+        <br /> <br />
 
-          Happy birthday, Sanjukta. I hope this little gift makes your day a
-          little more special. Love ya!
+        Question 3: "What's your favorite way to spend time with someone you like being around?"
+        <br />
+        answer
+        <br /> <br />
+
+        Question 4: "What's one thing you wish more people knew about you?",
+        <br />
+        answer
+        <br /> <br />
+
+        Question 5: "If we met in person for the first time, what do you think we'd talk about first?"
+        <br />
+        answer
+        <br /> <br />
+
+        Question 6: "If we could spend an entire day together, what would we do?"
+        <br />
+        answer
+        <br /> <br />
+
+        Question 7: "What do you like about me?"
+        <br />
+        answer
+        <br /> <br />
+
+        Question 8: "Another thing... why are you so cute?"
+        <br />
+        answer
+        <br /> <br />
+
+        Question 9: "And lastly... In what stage we can video call together?"
+        <br />
+        answer
+        <br /> <br />
+
+        Question 10: "I lied. Lastly fr, why aren't you my girlfriend yet?"
+        <br />
+        answer
+      </p>
+
+      <div class="tiny-heart">♡♡♡</div>
+
+      <p class="message">
+        I was so desperate for a friend or maybe more, and I was so lucky to
+        find you. I'm very glad I went to the Pinterest post and having the
+        courage to text you first. I'm glad I can get to know you.
+        <br /><br />
+
+        We have only known each other for a few weeks, but somehow, you've
+        already become someone really important to me. I already feel really
+        comfortable talking to you. And I'm honestly scared that our
+        connection will only last a few months, since that’s how my past
+        relationships have been. But until now, I feel like I can trust you. I
+        feel like I can be myself around you. I always catch myself waiting
+        for your texts.
+        <br /><br />
+
+        And I feel like our relationship is going to be something really
+        special. You're more than just an online friend to me. You're more
+        than just a friend to keep me company or whenever I'm bored. You're
+        more than just someone I talk to. You've become someone I genuinely
+        care about. Hell, you're even more than just a friend to me.
+        <br /><br />
+
+        I really want to be your girlfriend. I want to be yours and you to be
+        mine. This website is my way of telling you that. I want to be with
+        you.
+      </p>
+      <div class="final-question">
+        <p class="final-question-title">
+          So... would you want to be my girlfriend?
         </p>
 
-        <div class="page-buttons">
-          <button type="button" class="back-button" onclick="previousPage()">
-            ← Back
-          </button>
+        <div class="radio-options">
 
-          <button type="button" onclick="openSpotify()">
-            View the playlist!
-            <span>→</span>
-          </button>
+          <label class="radio-option">
+            <input type="radio" name="girlfriend" value="yes" />
+            <span class="radio-custom"></span>
+            Yes
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="girlfriend" value="no" />
+            <span class="radio-custom"></span>
+            No :c
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="girlfriend" value="maybe" />
+            <span class="radio-custom"></span>
+            Maybe (Friendzone :c)
+          </label>
+
         </div>
-      </div>
-    </main>
+<br />
+        <div class="tiny-heart">♡♡♡</div>
 
-    <script type="module" src="script.js"></script>
-  </body>
+      </div>
+
+      <div class="page-buttons">
+        <button type="button" class="back-button" onclick="previousPage()">
+          ← Back
+        </button>
+
+        <button type="button" onclick="openSpotify()">
+          View the playlist!
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+
 </html>

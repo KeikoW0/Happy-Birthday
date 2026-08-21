@@ -82,7 +82,7 @@ const questions = [
 
     "What's something you're really looking forward to?",
 
-    "What's a random thing you're really passionate about?",
+    "What's a random thing you're really passionate or obsessed with?",
 
     "What's your favorite way to spend time with someone you like being around?",
 
@@ -284,6 +284,49 @@ async function nextQuestion() {
         showPage(6);
     }
 }
+
+document.querySelectorAll('input[name="girlfriend"]').forEach((radio) => {
+
+    radio.addEventListener("change", async function () {
+
+        const answer = this.value;
+
+        try {
+
+            const answerRef = doc(
+                db,
+                "birthday_answers",
+                "sanjukta"
+            );
+
+            await setDoc(
+                answerRef,
+                {
+                    girlfriendAnswer: answer,
+                    updatedAt: serverTimestamp()
+                },
+                {
+                    merge: true
+                }
+            );
+
+            console.log(
+                "Girlfriend answer saved:",
+                answer
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Failed to save girlfriend answer:",
+                error
+            );
+
+        }
+
+    });
+
+});
 
 
 /* =========================
