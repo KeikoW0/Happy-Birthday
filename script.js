@@ -79,26 +79,25 @@ function previousPage() {
 ========================= */
 
 const questions = [
+  "What's something you're really looking forward to?",
 
-    "What's something you're really looking forward to?",
+  "What's a random thing you're really passionate or obsessed with? (And/or used to are both alright. It can be anything! Fandoms, activities, something you love, etc.)",
 
-    "What's a random thing you're really passionate or obsessed with?",
+  "What are some things you wish more people knew about you?",
 
-    "What's your favorite way to spend time with someone you like being around?",
+  "What's something you've always wanted to try but haven't gotten the chance to?",
 
-    "What's one thing you wish more people knew about you?",
+  "What do you like about me?",
 
-    "If we met in person for the first time, what do you think we'd talk about first?",
+  "What was your first impression of me, and has it changed?",
 
-    "If we could spend an entire day together, what would we do?",
+  "If we could spend an entire day together for the first time, what would we do or talk about?",
 
-    "What do you like about me?",
+  "Another thing... why are you so cute?",
 
-    "Another thing... why are you so cute?",
+  "And lastly... at what point do you think we'd be ready to video call each other?",
 
-    "And lastly... In what stage we can video call together?",
-
-    "I lied. Lastly fr, why aren't you my girlfriend yet?"
+  "I lied. Lastly, for real... why aren't you my girlfriend yet?"
 ];
 
 
