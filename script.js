@@ -83,19 +83,11 @@ const questions = [
 
   "What's a random thing you're really passionate or obsessed with? (And/or used to are both alright. It can be anything! Fandoms, activities, something you love, etc.)",
 
-  "What are some things you wish more people knew about you?",
-
-  "What's something you've always wanted to try but haven't gotten the chance to?",
-
-  "What do you like about me?",
-
-  "What was your first impression of me, and has it changed?",
+  "What do you like about me? What was your first impression of me, and has it changed?",
 
   "If we could spend an entire day together for the first time, what would we do or talk about?",
 
-  "Another thing... why are you so cute?",
-
-  "And lastly... at what point do you think we'd be ready to video call each other?",
+  "And lastly... why are you so cute?",
 
   "I lied. Lastly, for real... why aren't you my girlfriend yet?"
 ];

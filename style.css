@@ -465,6 +465,27 @@ h1 span {
         1.8;
 }
 
+.message-little{
+     margin:
+        28px auto;
+
+    max-width:
+        460px;
+
+    color:
+        rgba(255,255,255,0.88);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.8;
+}
+
 
 /* =========================
    BUTTON
