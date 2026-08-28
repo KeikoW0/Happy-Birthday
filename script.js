@@ -172,7 +172,7 @@ async function saveAnswer(questionIndex, userAnswer) {
         );
 
         alert(
-            "Oops! Your answer couldn't be saved ♡"
+            "Your answer couldn't be saved."
         );
 
         return false;
