@@ -65,6 +65,7 @@ function nextPage() {
     }
 }
 
+
 function previousPage() {
 
     if (currentPage > 1) {
@@ -79,21 +80,28 @@ function previousPage() {
 ========================= */
 
 const questions = [
-  "What's something you're really looking forward to?",
+    "What's something you're really looking forward to?",
 
-  "What's a random thing you're really passionate or obsessed with? (And/or used to are both alright. It can be anything! Fandoms, activities, something you love, etc.)",
+    "What's a random thing you're really passionate or obsessed with? (And/or used to are both alright. It can be anything! Fandoms, activities, something you love, etc.)",
 
-  "What do you like about me? What was your first impression of me, and has it changed?",
+    "What do you like about me? What was your first impression of me, and has it changed?",
 
-  "If we could spend an entire day together for the first time, what would we do or talk about?",
+    "If we could spend an entire day together for the first time, what would we do or talk about?",
 
-  "And lastly... why are you so cute?",
+    "And lastly... why are you so cute?",
 
-  "I lied. Lastly, for real... why aren't you my girlfriend yet?"
+    "I lied. Lastly, for real... why aren't you my girlfriend yet?"
 ];
 
 
 let currentQuestion = 0;
+
+
+/* =========================
+   CURRENT QUIZ ROUND
+========================= */
+
+let currentRoundId = null;
 
 
 /* =========================
@@ -103,6 +111,20 @@ let currentQuestion = 0;
 function startQuiz() {
 
     currentQuestion = 0;
+
+    /*
+       Buat ronde baru setiap kali
+       quiz dimulai.
+    */
+
+    currentRoundId =
+        "round_" + Date.now();
+
+    console.log(
+        "New quiz round:",
+        currentRoundId
+    );
+
 
     const questionText =
         document.getElementById("questionText");
@@ -133,34 +155,64 @@ function startQuiz() {
    SAVE ANSWER
 ========================= */
 
-async function saveAnswer(questionIndex, userAnswer) {
+async function saveAnswer(
+    questionIndex,
+    userAnswer
+) {
+
+    /*
+       Jangan simpan kalau belum ada
+       ronde yang aktif.
+    */
+
+    if (!currentRoundId) {
+
+        console.error(
+            "No active quiz round."
+        );
+
+        alert(
+            "Please start the quiz first."
+        );
+
+        return false;
+    }
+
 
     try {
 
         const answerRef = doc(
             db,
             "birthday_answers",
-            "sanjukta"
+            currentRoundId
         );
+
 
         await setDoc(
             answerRef,
             {
                 [`answer${String(questionIndex + 1).padStart(2, "0")}`]: {
-                    question: questions[questionIndex],
-                    answer: userAnswer
+
+                    question:
+                        questions[questionIndex],
+
+                    answer:
+                        userAnswer
                 },
 
-                updatedAt: serverTimestamp()
+                updatedAt:
+                    serverTimestamp()
             },
             {
                 merge: true
             }
         );
 
+
         console.log(
-            `Answer ${questionIndex + 1} saved!`
+            `Answer ${questionIndex + 1} saved to ${currentRoundId}!`
         );
+
 
         return true;
 
@@ -171,9 +223,11 @@ async function saveAnswer(questionIndex, userAnswer) {
             error
         );
 
+
         alert(
             "Your answer couldn't be saved."
         );
+
 
         return false;
     }
@@ -269,55 +323,95 @@ async function nextQuestion() {
     else {
 
         console.log(
-            "Quiz completed!"
+            "Quiz completed!",
+            currentRoundId
         );
 
         showPage(6);
     }
 }
 
-document.querySelectorAll('input[name="girlfriend"]').forEach((radio) => {
 
-    radio.addEventListener("change", async function () {
+/* =========================
+   GIRLFRIEND ANSWER
+========================= */
 
-        const answer = this.value;
+document
+    .querySelectorAll(
+        'input[name="girlfriend"]'
+    )
+    .forEach((radio) => {
 
-        try {
+        radio.addEventListener(
+            "change",
+            async function () {
 
-            const answerRef = doc(
-                db,
-                "birthday_answers",
-                "sanjukta"
-            );
+                const answer =
+                    this.value;
 
-            await setDoc(
-                answerRef,
-                {
-                    girlfriendAnswer: answer,
-                    updatedAt: serverTimestamp()
-                },
-                {
-                    merge: true
+
+                /*
+                   Pastikan user sudah
+                   memulai quiz.
+                */
+
+                if (!currentRoundId) {
+
+                    console.error(
+                        "No active quiz round."
+                    );
+
+                    return;
                 }
-            );
 
-            console.log(
-                "Girlfriend answer saved:",
-                answer
-            );
 
-        } catch (error) {
+                try {
 
-            console.error(
-                "Failed to save girlfriend answer:",
-                error
-            );
+                    const answerRef =
+                        doc(
+                            db,
+                            "birthday_answers",
+                            currentRoundId
+                        );
 
-        }
+
+                    await setDoc(
+                        answerRef,
+                        {
+                            girlfriendAnswer:
+                                answer,
+
+                            updatedAt:
+                                serverTimestamp()
+                        },
+                        {
+                            merge: true
+                        }
+                    );
+
+
+                    console.log(
+                        "Girlfriend answer saved:",
+                        answer,
+                        "in",
+                        currentRoundId
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Failed to save girlfriend answer:",
+                        error
+                    );
+
+                }
+
+            }
+        );
 
     });
 
-});
 
 /* =========================
    INTERACTIVE LETTER
@@ -331,16 +425,20 @@ function openLetter() {
     const letterContent =
         document.getElementById("letterContent");
 
+
     if (!letterContent) {
         return;
     }
 
+
     letterContent.classList.add("open");
+
 
     if (letterCover) {
         letterCover.style.display = "none";
     }
 }
+
 
 /* =========================
    SPOTIFY
@@ -363,7 +461,8 @@ function openSpotify() {
 window.nextPage =
     nextPage;
 
-window.previousPage = previousPage;
+window.previousPage =
+    previousPage;
 
 window.startQuiz =
     startQuiz;
@@ -374,7 +473,8 @@ window.nextQuestion =
 window.openSpotify =
     openSpotify;
 
-window.openLetter = openLetter;
+window.openLetter =
+    openLetter;
 
 
 /* =========================
@@ -384,4 +484,3 @@ window.openLetter = openLetter;
 console.log(
     "script.js + Firebase berhasil dimuat!"
 );
-

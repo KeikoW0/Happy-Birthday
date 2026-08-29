@@ -1131,6 +1131,8 @@ button:hover span {
 
     transition:
         0.25s ease;
+
+    text-align: center;
 }
 
 
@@ -2210,13 +2212,17 @@ button:hover span {
 
     .radio-option {
         padding:
-            5px 8px;
+            5px 5px;
 
         font-size:
             9px;
+        
+        text-align: center;
+        
     }
 
 }
+
 
 
 /* =====================================================
