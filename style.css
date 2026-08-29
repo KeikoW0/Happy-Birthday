@@ -2355,3 +2355,120 @@ button:hover span {
     }
 
 }
+
+/* =====================================================
+   CLICK FIX
+   Keep all existing sizes unchanged.
+===================================================== */
+
+.page.active {
+    pointer-events: auto;
+}
+
+.page.active .card,
+.page.active .letter-cover,
+.page.active button,
+.page.active input,
+.page.active textarea,
+.page.active label,
+.page.active a {
+    pointer-events: auto;
+}
+
+.page.active .card {
+    position: relative;
+    z-index: 6;
+}
+
+.page.active button,
+.page.active input,
+.page.active textarea,
+.page.active label,
+.page.active a {
+    position: relative;
+    z-index: 10;
+}
+
+.floating-hearts,
+body::before,
+body::after {
+    pointer-events: none;
+}
+
+.page-indicator {
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   MOBILE TEXT / NOTEBOOK LINE FIX
+   Remove the side notebook line and use full text width
+   on mobile without changing the existing text sizes.
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .card,
+    .wide-card,
+    .quiz-card,
+    .music-card,
+    .letter-cover {
+        padding-left: 22px;
+    }
+
+    .card::before,
+    .letter-cover::before,
+    #page6 .wide-card::before {
+        display: none;
+    }
+
+    .card > *,
+    .wide-card > *,
+    .quiz-card > *,
+    .music-card > *,
+    .letter-cover > * {
+        max-width: 100%;
+    }
+
+    .message,
+    .message-little,
+    .wide-card .message,
+    .memory-list,
+    .answer-container,
+    .spotify-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .message,
+    .wide-card .message {
+        text-align: left;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .card,
+    .wide-card,
+    .quiz-card,
+    .music-card,
+    .letter-cover {
+        padding-left: 18px;
+    }
+
+    .card::before,
+    .letter-cover::before,
+    #page6 .wide-card::before {
+        display: none;
+    }
+
+    .message,
+    .message-little,
+    .wide-card .message,
+    .memory-list,
+    .answer-container,
+    .spotify-box {
+        width: 100%;
+        max-width: 100%;
+    }
+}
