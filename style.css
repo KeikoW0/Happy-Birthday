@@ -1,3 +1,7 @@
+/* =====================================================
+   RESET
+===================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,19 +9,36 @@
 }
 
 
+/* =====================================================
+   VARIABLES
+===================================================== */
+
 :root {
     --pink-dark: #9e4f69;
     --pink: #d97898;
     --pink-light: #ffdce7;
-    --white: #fffafa;
+
+    --paper: #fffdfd;
+    --paper-line: rgba(225, 170, 185, 0.55);
+    --paper-margin: rgba(205, 110, 135, 0.55);
+
     --text: #6d394c;
 }
 
 
-body {
+/* =====================================================
+   HTML / BODY
+===================================================== */
 
+html,
+body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+}
+
+
+body {
+    min-height: 100vh;
 
     overflow: hidden;
 
@@ -39,12 +60,11 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    BACKGROUND GLOW
-========================= */
+===================================================== */
 
 body::before {
-
     content: "";
 
     position: fixed;
@@ -58,18 +78,18 @@ body::before {
     border-radius: 50%;
 
     background:
-        rgba(255,255,255,0.35);
+        rgba(255, 255, 255, 0.35);
 
     filter:
         blur(80px);
 
-    pointer-events:
-        none;
+    pointer-events: none;
+
+    z-index: 0;
 }
 
 
 body::after {
-
     content: "";
 
     position: fixed;
@@ -83,22 +103,22 @@ body::after {
     border-radius: 50%;
 
     background:
-        rgba(255,255,255,0.2);
+        rgba(255, 255, 255, 0.2);
 
     filter:
         blur(70px);
 
-    pointer-events:
-        none;
+    pointer-events: none;
+
+    z-index: 0;
 }
 
 
-/* =========================
+/* =====================================================
    FLOATING HEARTS
-========================= */
+===================================================== */
 
 .floating-hearts {
-
     position: fixed;
 
     inset: 0;
@@ -112,7 +132,6 @@ body::after {
 
 
 .floating-hearts span {
-
     position: absolute;
 
     bottom: -50px;
@@ -132,45 +151,54 @@ body::after {
     animation-delay: 0s;
 }
 
+
 .floating-hearts span:nth-child(2) {
     left: 15%;
     animation-delay: 3s;
 }
+
 
 .floating-hearts span:nth-child(3) {
     left: 25%;
     animation-delay: 6s;
 }
 
+
 .floating-hearts span:nth-child(4) {
     left: 35%;
     animation-delay: 1s;
 }
+
 
 .floating-hearts span:nth-child(5) {
     left: 45%;
     animation-delay: 5s;
 }
 
+
 .floating-hearts span:nth-child(6) {
     left: 55%;
     animation-delay: 8s;
 }
+
 
 .floating-hearts span:nth-child(7) {
     left: 65%;
     animation-delay: 2s;
 }
 
+
 .floating-hearts span:nth-child(8) {
     left: 75%;
     animation-delay: 7s;
 }
 
+
 .floating-hearts span:nth-child(9) {
     left: 85%;
     animation-delay: 4s;
 }
+
 
 .floating-hearts span:nth-child(10) {
     left: 95%;
@@ -181,7 +209,6 @@ body::after {
 @keyframes floatingHeart {
 
     0% {
-
         transform:
             translateY(0)
             rotate(0deg)
@@ -195,7 +222,6 @@ body::after {
     }
 
     50% {
-
         transform:
             translateY(-50vh)
             rotate(15deg)
@@ -203,7 +229,6 @@ body::after {
     }
 
     100% {
-
         transform:
             translateY(-110vh)
             rotate(-15deg)
@@ -214,12 +239,11 @@ body::after {
 }
 
 
-/* =========================
+/* =====================================================
    PAGE NUMBER
-========================= */
+===================================================== */
 
 .page-indicator {
-
     position: fixed;
 
     top: 30px;
@@ -227,24 +251,25 @@ body::after {
 
     color: white;
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
     font-size: 11px;
 
     letter-spacing: 2px;
 
-    opacity: 0.8;
+    opacity: 0.85;
 
-    z-index: 20;
+    z-index: 100;
 }
 
 
-/* =========================
+/* =====================================================
    PAGE
-========================= */
+===================================================== */
 
 .page {
-
     position: fixed;
 
     inset: 0;
@@ -255,12 +280,9 @@ body::after {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     padding: 25px;
-
-    position: fixed;
 
     z-index: 2;
 
@@ -281,7 +303,6 @@ body::after {
 
 
 .page.active {
-
     opacity: 1;
 
     visibility: visible;
@@ -296,7 +317,6 @@ body::after {
 
 
 .page.leaving {
-
     opacity: 0;
 
     visibility: visible;
@@ -308,30 +328,54 @@ body::after {
 }
 
 
-/* =========================
-   CARD
-========================= */
+/* =====================================================
+   PAPER CARD
+===================================================== */
 
 .card {
-    width: min(500px, 50%);
+    position: relative;
+
+    width: min(500px, 92%);
+
     padding:
         45px
-        40px;
+        40px
+        45px
+        70px;
 
     text-align: center;
 
-    border-radius: 30px;
+    border-radius: 4px;
 
-    background:
-        #9e4f69;
+    background-color:
+        var(--paper);
 
-    border:
-        1px solid
-        rgba(255,255,255,0.5);
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+
+            transparent 0px,
+            transparent 31px,
+
+            var(--paper-line) 32px,
+
+            transparent 33px
+        );
+
+    background-attachment:
+        local;
+
+    color:
+        var(--text);
 
     box-shadow:
         0 25px 60px
-        rgba(120,40,70,0.18);
+        rgba(80, 30, 50, 0.22),
+
+        0 8px 20px
+        rgba(80, 30, 50, 0.10);
+
+    overflow: hidden;
 
     animation:
         cardAppear
@@ -339,20 +383,89 @@ body::after {
 }
 
 
-/* =========================
-   DECORATION
-========================= */
+/* =====================================================
+   LEFT RED NOTEBOOK LINE
+===================================================== */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 48px;
+
+    width: 1px;
+
+    background:
+        var(--paper-margin);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   NOTEBOOK HOLES
+===================================================== */
+
+.card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 28px;
+    bottom: 28px;
+
+    left: 11px;
+
+    width: 22px;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(180, 105, 125, 0.55) 0,
+            rgba(180, 105, 125, 0.55) 4px,
+            transparent 4.5px
+        );
+
+    background-size:
+        22px 42px;
+
+    background-repeat:
+        repeat-y;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   CARD CONTENT
+===================================================== */
+
+.card > * {
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =====================================================
+   HEART
+===================================================== */
 
 .tiny-heart {
-
-    font-size:
-        32px;
+    font-size: 32px;
 
     color:
-        white;
+        #c45c7d;
 
-    margin-bottom:
-        25px;
+    margin-bottom: 25px;
 
     animation:
         heartbeat
@@ -361,15 +474,12 @@ body::after {
 
 
 .big-heart {
-
-    font-size:
-        70px;
+    font-size: 70px;
 
     color:
-        white;
+        #c45c7d;
 
-    margin-bottom:
-        20px;
+    margin-bottom: 20px;
 
     animation:
         heartbeat
@@ -377,157 +487,147 @@ body::after {
 }
 
 
-/* =========================
-   TEXT
-========================= */
+/* =====================================================
+   SMALL TITLE
+===================================================== */
 
 .small-title {
-
     font-family:
         Arial,
         sans-serif;
 
     color:
-        white;
+        #9e4f69;
 
-    font-size:
-        10px;
+    font-size: 10px;
 
-    letter-spacing:
-        4px;
+    letter-spacing: 4px;
 
-    margin-bottom:
-        25px;
+    line-height: 1.5;
 
-    opacity:
-        0.8;
+    margin-bottom: 25px;
+
+    opacity: 0.85;
 }
 
 
+/* =====================================================
+   HEADINGS
+===================================================== */
+
 h1 {
-
     font-size:
-        clamp(30px, 7vw, 20px);
+        clamp(30px, 7vw, 52px);
 
-    font-weight:
-        200;
+    font-weight: 400;
 
-    line-height:
-        1.05;
+    line-height: 1.1;
 
     color:
-        white;
+        #7c4054;
 
-    letter-spacing:
-        -2px;
-
-    text-shadow:
-        0 5px 25px
-        rgba(100,30,60,0.15);
+    letter-spacing: -1.5px;
 }
 
 
 h1 span {
+    display: block;
 
-    display:
-        block;
-
-    font-style:
-        italic;
+    font-style: italic;
 
     color:
-        white;
+        #9e4f69;
 
-    margin-top:
-        8px;
+    margin-top: 8px;
 }
 
 
+/* =====================================================
+   MESSAGE
+===================================================== */
+
 .message {
+    width: 100%;
+
+    max-width: 460px;
 
     margin:
         28px auto;
 
-    max-width:
-        460px;
-
     color:
-        rgba(255,255,255,0.88);
+        #6d394c;
 
     font-family:
-        Arial,
-        sans-serif;
+        "Times New Roman",
+        Times,
+        serif;
 
-    font-size:
-        14px;
+    font-size: 15px;
 
-    line-height:
-        1.8;
-}
+    line-height: 1.8;
 
-.message-little{
-     margin:
-        28px auto;
-
-    max-width:
-        460px;
-
-    color:
-        rgba(255,255,255,0.88);
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        12px;
-
-    line-height:
-        1.8;
+    text-align: left;
 }
 
 
-/* =========================
+.message-little {
+    width: 100%;
+
+    max-width: 460px;
+
+    margin:
+        20px auto;
+
+    color:
+        #6d394c;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    text-align: center;
+}
+
+
+/* =====================================================
    BUTTON
-========================= */
+===================================================== */
 
 button {
-
-    margin-top:
-        8px;
+    margin-top: 8px;
 
     padding:
         15px
         28px;
 
-    border:
-        none;
+    border: none;
 
-    border-radius:
-        50px;
+    border-radius: 50px;
 
     background:
-        white;
+        #9e4f69;
 
     color:
-        var(--pink-dark);
+        white;
 
     font-family:
         Arial,
         sans-serif;
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    font-weight:
-        600;
+    font-weight: 600;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     box-shadow:
         0 12px 30px
-        rgba(100,30,60,0.15);
+        rgba(100, 30, 60, 0.15);
 
     transition:
         0.3s ease;
@@ -535,9 +635,7 @@ button {
 
 
 button span {
-
-    margin-left:
-        12px;
+    margin-left: 12px;
 
     transition:
         0.3s ease;
@@ -545,33 +643,90 @@ button span {
 
 
 button:hover {
-
     transform:
         translateY(-4px);
 
+    background:
+        #873f59;
+
     box-shadow:
         0 18px 35px
-        rgba(100,30,60,0.22);
+        rgba(100, 30, 60, 0.22);
 }
 
 
 button:hover span {
-
-    margin-left:
-        18px;
+    margin-left: 18px;
 }
 
 
-/* =========================
-   CARD ANIMATION
-========================= */
+/* =====================================================
+   BUTTON GROUP
+===================================================== */
+
+.page-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.page-buttons button {
+    margin-top: 0;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-button {
+    background:
+        transparent;
+
+    color:
+        #9e4f69;
+
+    border:
+        1px solid
+        rgba(158, 79, 105, 0.45);
+
+    box-shadow:
+        none;
+}
+
+
+.back-button:hover {
+    background:
+        rgba(158, 79, 105, 0.08);
+
+    color:
+        #7c4054;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        none;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
 
 @keyframes cardAppear {
 
     from {
-
-        opacity:
-            0;
+        opacity: 0;
 
         transform:
             translateY(30px)
@@ -579,9 +734,7 @@ button:hover span {
     }
 
     to {
-
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translateY(0)
@@ -594,25 +747,22 @@ button:hover span {
 
     0%,
     100% {
-
         transform:
             scale(1);
     }
 
     50% {
-
         transform:
             scale(1.15);
     }
 }
 
 
-/* =========================
+/* =====================================================
    SPOTIFY
-========================= */
+===================================================== */
 
 .spotify-box {
-
     width:
         min(600px, 100%);
 
@@ -626,18 +776,17 @@ button:hover span {
         20px;
 
     background:
-        rgba(255,255,255,0.12);
+        rgba(158, 79, 105, 0.07);
 
     border:
         1px solid
-        rgba(255,255,255,0.2);
+        rgba(158, 79, 105, 0.15);
 }
 
 
 .spotify-label {
-
     color:
-        white;
+        #9e4f69;
 
     font-family:
         Arial,
@@ -658,7 +807,6 @@ button:hover span {
 
 
 .spotify-box iframe {
-
     display:
         block;
 
@@ -676,48 +824,53 @@ button:hover span {
 }
 
 
-/* =========================
-   MEMORY LIST
-========================= */
+/* =====================================================
+   MEMORY
+===================================================== */
 
 .memory-list {
-
     width:
-        min(550px, 100%);
+        100%;
+
+    max-width:
+        780px;
 
     margin:
-        15px auto 25px;
+        20px auto 25px;
 }
 
 
 .memory-item {
-
     display:
         flex;
 
     align-items:
-        center;
+        flex-start;
 
     gap:
         13px;
 
-    text-align:
-        left;
+    width:
+        100%;
 
     padding:
-        12px 17px;
+        13px 17px;
 
     margin-bottom:
-        8px;
+        10px;
 
     border-radius:
         14px;
 
     background:
-        rgba(255,255,255,0.1);
+        rgba(158, 79, 105, 0.07);
+
+    border:
+        1px solid
+        rgba(158, 79, 105, 0.14);
 
     color:
-        white;
+        #6d394c;
 
     font-family:
         Arial,
@@ -725,24 +878,40 @@ button:hover span {
 
     font-size:
         13px;
+
+    line-height:
+        1.6;
+
+    text-align:
+        left;
 }
 
 
 .memory-item span {
+    flex-shrink:
+        0;
 
     font-size:
         18px;
+
+    color:
+        #b65c7a;
 }
 
 
-/* =========================
+.memory-item p {
+    margin:
+        0;
+}
+
+
+/* =====================================================
    QUIZ
-========================= */
+===================================================== */
 
 .quiz-number {
-
     color:
-        rgba(255,255,255,0.65);
+        rgba(109, 57, 76, 0.55);
 
     font-family:
         Arial,
@@ -760,9 +929,8 @@ button:hover span {
 
 
 .quiz-number span {
-
     color:
-        white;
+        #9e4f69;
 
     font-weight:
         bold;
@@ -770,7 +938,6 @@ button:hover span {
 
 
 .quiz-card h2 {
-
     max-width:
         600px;
 
@@ -778,21 +945,24 @@ button:hover span {
         0 auto 25px;
 
     color:
-        white;
+        #7c4054;
 
     font-size:
-        clamp(28px, 5vw, 22px);
+        clamp(22px, 5vw, 30px);
 
     font-weight:
         400;
 
     line-height:
-        1.15;
+        1.3;
 }
 
 
-.answer-container {
+/* =====================================================
+   ANSWER
+===================================================== */
 
+.answer-container {
     width:
         min(560px, 100%);
 
@@ -805,7 +975,6 @@ button:hover span {
 
 
 .answer-container textarea {
-
     width:
         100%;
 
@@ -819,7 +988,8 @@ button:hover span {
         none;
 
     border:
-        none;
+        1px solid
+        rgba(158, 79, 105, 0.18);
 
     border-radius:
         18px;
@@ -827,11 +997,14 @@ button:hover span {
     padding:
         17px;
 
+    padding-right:
+        40px;
+
     background:
-        rgba(255,255,255,0.92);
+        rgba(255, 255, 255, 0.90);
 
     color:
-        var(--text);
+        #6d394c;
 
     font-family:
         Arial,
@@ -846,14 +1019,12 @@ button:hover span {
 
 
 .answer-container textarea::placeholder {
-
     color:
-        rgba(109,57,76,0.55);
+        rgba(109, 57, 76, 0.55);
 }
 
 
 .answer-container > span {
-
     position:
         absolute;
 
@@ -864,503 +1035,1187 @@ button:hover span {
         10px;
 
     color:
-        var(--pink-dark);
+        #9e4f69;
 
     opacity:
         0.6;
 }
 
-.page-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
 
-    margin-top: 25px;
-}
-
-.page-buttons button {
-    margin-top: 0;
-}
-
-.back-button {
-    background: transparent;
-
-    color: rgba(255,255,255,0.85);
-
-    border: 1px solid rgba(255,255,255,0.5);
-
-    box-shadow: none;
-}
-
-.back-button:hover {
-    background: rgba(255,255,255,0.12);
-
-    transform: translateY(-2px);
-
-    box-shadow: none;
-}
-
-.memory-card {
-    width: min(900px, 92%);
-    max-height: 90vh;
-}
-
-.memory-list {
-    width: 100%;
-    max-width: 780px;
-    margin: 20px auto;
-}
-
-.memory-item {
-    width: 100%;
-}
-
-/* =========================
-   WIDE CARD
-========================= */
-
-.wide-card {
-    width: min(900px, 92%);
-    max-height: 88vh;
-
-    overflow-y: auto;
-
-    padding: 55px 50px;
-}
-
-
-/* Scrollbar */
-
-.wide-card::-webkit-scrollbar{
-    width: 5px;
-}
-
-.wide-card::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.wide-card::-webkit-scrollbar-thumb {
-    background: rgba(141, 71, 71, 0.3);
-    border-radius: 1px;
-}
-
-
-/* Message */
-
-.wide-card .message {
-    max-width: 760px;
-    margin: 28px auto;
-
-    line-height: 1.2;
-    text-align: left;
-}
-
-/* Buttons */
-
-.wide-card .page-buttons {
-    margin-top: 20px;
-}
-
-/* =========================
+/* =====================================================
    FINAL QUESTION
-========================= */
+===================================================== */
 
 .final-question {
-    margin: 35px auto 25px;
-    text-align: center;
+    margin:
+        35px auto 25px;
+
+    text-align:
+        center;
 }
+
 
 .final-question-title {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 15px;
-    color: white;
-    margin-bottom: 10px;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        15px;
+
+    color:
+        #7c4054;
+
+    margin-bottom:
+        10px;
 }
+
 
 .radio-options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    flex-wrap: wrap;
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    flex-wrap:
+        wrap;
 }
+
 
 .radio-option {
-    position: relative;
+    position:
+        relative;
 
-    display: flex;
-    align-items: center;
-    gap: 7px;
+    display:
+        flex;
 
-    padding: 5px 10px;
+    align-items:
+        center;
 
-    border-radius: 30px;
+    gap:
+        7px;
 
-    background: rgba(255, 255, 255, 0.10);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding:
+        5px 10px;
 
-    color: white;
+    border-radius:
+        30px;
 
-    font-family: Arial, sans-serif;
-    font-size: 10px;
+    background:
+        rgba(158, 79, 105, 0.07);
 
-    cursor: pointer;
+    border:
+        1px solid
+        rgba(158, 79, 105, 0.20);
 
-    transition: 0.25s ease;
+    color:
+        #7c4054;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        10px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.25s ease;
 }
+
 
 .radio-option:hover {
-    background: rgba(255, 255, 255, 0.18);
-    transform: translateY(-2px);
+    background:
+        rgba(158, 79, 105, 0.13);
+
+    transform:
+        translateY(-2px);
 }
+
 
 .radio-option input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
+    position:
+        absolute;
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
 }
+
 
 .radio-custom {
-    width: 13px;
-    height: 13px;
+    width:
+        13px;
 
-    border: 1.5px solid white;
-    border-radius: 50%;
+    height:
+        13px;
 
-    display: inline-block;
+    border:
+        1.5px solid
+        #9e4f69;
 
-    position: relative;
+    border-radius:
+        50%;
+
+    display:
+        inline-block;
+
+    position:
+        relative;
+
+    flex-shrink:
+        0;
 }
+
 
 .radio-option input:checked + .radio-custom::after {
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    width: 7px;
-    height: 7px;
+    width:
+        7px;
 
-    top: 2px;
-    left: 2px;
+    height:
+        7px;
 
-    border-radius: 50%;
+    top:
+        2px;
 
-    background: white;
+    left:
+        2px;
+
+    border-radius:
+        50%;
+
+    background:
+        #9e4f69;
 }
+
 
 .radio-option:has(input:checked) {
-    background: rgba(255, 255, 255, 0.22);
-    border-color: white;
+    background:
+        rgba(158, 79, 105, 0.16);
+
+    border-color:
+        #9e4f69;
 }
+
+
 /* =====================================================
-   MOBILE VERSION
+   WIDE LETTER PAPER
+===================================================== */
+
+.wide-card {
+    width:
+        min(900px, 92%);
+
+    max-height:
+        88vh;
+
+    overflow-y:
+        auto;
+
+    overflow-x:
+        hidden;
+
+    padding:
+        55px 50px 55px 70px;
+
+    background-attachment:
+        local;
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        rgba(158, 79, 105, 0.35)
+        transparent;
+}
+
+
+/* =====================================================
+   NO HOLES ON LETTER
+===================================================== */
+
+#page6 .wide-card::after {
+    display:
+        none;
+}
+
+
+/* Keep the red notebook margin */
+
+#page6 .wide-card::before {
+    left:
+        48px;
+}
+
+
+/* =====================================================
+   WIDE TITLE
+===================================================== */
+
+.wide-card h1 {
+    font-size:
+        clamp(30px, 5vw, 48px);
+
+    line-height:
+        1.15;
+}
+
+
+/* =====================================================
+   WIDE MESSAGE
+===================================================== */
+
+.wide-card .message {
+    width:
+        100%;
+
+    max-width:
+        760px;
+
+    margin:
+        28px auto;
+
+    line-height:
+        1.7;
+
+    text-align:
+        left;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+.wide-card::-webkit-scrollbar {
+    width:
+        5px;
+}
+
+
+.wide-card::-webkit-scrollbar-track {
+    background:
+        transparent;
+}
+
+
+.wide-card::-webkit-scrollbar-thumb {
+    background:
+        rgba(158, 79, 105, 0.30);
+
+    border-radius:
+        10px;
+}
+
+
+.wide-card::-webkit-scrollbar-thumb:hover {
+    background:
+        rgba(158, 79, 105, 0.50);
+}
+
+
+/* =====================================================
+   LETTER COVER
+===================================================== */
+
+.letter-cover {
+    position:
+        relative;
+
+    width:
+        min(500px, 92%);
+
+    min-height:
+        600px;
+
+    padding:
+        80px 60px 80px 70px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
+
+    cursor:
+        pointer;
+
+    background-color:
+        var(--paper);
+
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+
+            transparent 0px,
+            transparent 31px,
+
+            var(--paper-line) 32px,
+
+            transparent 33px
+        );
+
+    border-radius:
+        4px;
+
+    box-shadow:
+        0 25px 60px
+        rgba(80, 30, 50, 0.22),
+
+        0 8px 20px
+        rgba(80, 30, 50, 0.10);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease,
+        opacity 0.5s ease;
+}
+
+
+/* =====================================================
+   LETTER COVER MARGIN
+===================================================== */
+
+.letter-cover::before {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    left:
+        48px;
+
+    width:
+        1px;
+
+    background:
+        var(--paper-margin);
+
+    pointer-events:
+        none;
+}
+
+
+/* =====================================================
+   LETTER DECORATION
+===================================================== */
+
+.letter-decoration {
+    position:
+        absolute;
+
+    top:
+        30px;
+
+    left:
+        18px;
+
+    font-size:
+        18px;
+
+    color:
+        #c45c7d;
+
+    opacity:
+        0.8;
+
+    animation:
+        heartbeat 2s infinite;
+}
+
+
+/* =====================================================
+   LETTER COVER CONTENT
+===================================================== */
+
+.letter-cover > * {
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+/* =====================================================
+   LETTER SMALL TITLE
+===================================================== */
+
+.letter-small-title {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        4px;
+
+    color:
+        #9e4f69;
+
+    margin-bottom:
+        30px;
+}
+
+
+/* =====================================================
+   LETTER TITLE
+===================================================== */
+
+.letter-cover h1 {
+    font-size:
+        45px;
+
+    line-height:
+        1.15;
+
+    color:
+        #7c4054;
+
+    font-weight:
+        400;
+}
+
+
+.letter-cover h1 span {
+    display:
+        block;
+
+    margin-top:
+        8px;
+
+    font-style:
+        italic;
+
+    color:
+        #9e4f69;
+}
+
+
+/* =====================================================
+   LETTER LINE
+===================================================== */
+
+.letter-line {
+    width:
+        100px;
+
+    height:
+        1px;
+
+    margin:
+        35px 0;
+
+    background:
+        rgba(158, 79, 105, 0.35);
+}
+
+
+/* =====================================================
+   LETTER HINT
+===================================================== */
+
+.letter-hint {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        2px;
+
+    color:
+        #9e4f69;
+
+    opacity:
+        0.65;
+
+    animation:
+        letterHint 2s ease-in-out infinite;
+}
+
+
+@keyframes letterHint {
+
+    0%,
+    100% {
+        opacity:
+            0.45;
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        opacity:
+            0.9;
+
+        transform:
+            translateY(-3px);
+    }
+}
+
+
+/* =====================================================
+   LETTER COVER HOVER
+===================================================== */
+
+.letter-cover:hover {
+    transform:
+        translateY(-6px)
+        rotate(-0.5deg);
+
+    box-shadow:
+        0 32px 70px
+        rgba(80, 30, 50, 0.28),
+
+        0 10px 25px
+        rgba(80, 30, 50, 0.12);
+}
+
+
+/* =====================================================
+   LETTER CONTENT
+===================================================== */
+
+.letter-content {
+    display:
+        none;
+
+    opacity:
+        0;
+}
+
+
+.letter-content.open {
+    display:
+        block;
+
+    animation:
+        letterOpen
+        0.8s ease
+        forwards;
+}
+
+
+@keyframes letterOpen {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
 ===================================================== */
 
 @media (max-width: 600px) {
 
     html,
     body {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
+        width:
+            100%;
+
+        height:
+            100%;
+
+        overflow:
+            hidden;
     }
+
 
     body {
-        min-height: 100svh;
+        min-height:
+            100svh;
     }
 
 
-    /* =========================
-       PAGE
-    ========================= */
+    /* PAGE */
 
     .page {
-        position: fixed;
-        inset: 0;
+        width:
+            100%;
 
-        width: 100%;
-        height: 100svh;
+        height:
+            100svh;
 
-        padding: 65px 14px 25px;
+        padding:
+            65px 14px 25px;
 
-        display: none;
+        display:
+            none;
 
-        justify-content: center;
-        align-items: center;
+        justify-content:
+            center;
 
-        overflow-y: auto;
-        overflow-x: hidden;
+        align-items:
+            center;
 
-        -webkit-overflow-scrolling: touch;
+        overflow-y:
+            auto;
+
+        overflow-x:
+            hidden;
+
+        -webkit-overflow-scrolling:
+            touch;
     }
+
 
     .page.active {
-        display: flex;
+        display:
+            flex;
     }
 
 
-    /* =========================
-       PAGE NUMBER
-    ========================= */
+    /* INDICATOR */
 
     .page-indicator {
-        position: fixed;
+        top:
+            20px;
 
-        top: 20px;
-        right: 20px;
+        right:
+            20px;
 
-        z-index: 100;
-
-        font-size: 11px;
-
-        color: rgba(255,255,255,0.9);
+        font-size:
+            11px;
     }
 
 
-    /* =========================
-       CARD
-    ========================= */
+    /* CARD */
 
     .card {
-        width: 100%;
-        max-width: 390px;
+        width:
+            100%;
 
-        padding: 38px 25px;
+        max-width:
+            390px;
 
-        margin: auto;
+        padding:
+            38px 22px 38px 55px;
 
-        border-radius: 28px;
+        margin:
+            auto;
 
-        box-sizing: border-box;
+        border-radius:
+            4px;
+
+        background-attachment:
+            local;
     }
 
 
-    /* =========================
-       HEART
-    ========================= */
+    /* MARGIN */
+
+    .card::before {
+        left:
+            38px;
+    }
+
+
+    /* HOLES */
+
+    .card::after {
+        top:
+            25px;
+
+        bottom:
+            25px;
+
+        left:
+            8px;
+
+        width:
+            20px;
+
+        background-size:
+            20px 38px;
+    }
+
+
+    /* HEART */
 
     .tiny-heart {
-        font-size: 30px;
+        font-size:
+            30px;
 
-        margin-bottom: 20px;
+        margin-bottom:
+            20px;
     }
 
 
-    /* =========================
-       SMALL TITLE
-    ========================= */
+    .big-heart {
+        font-size:
+            48px;
+
+        margin-bottom:
+            12px;
+    }
+
+
+    /* SMALL TITLE */
 
     .small-title {
-        font-size: 8px;
+        font-size:
+            8px;
 
-        letter-spacing: 2.5px;
+        letter-spacing:
+            2.5px;
 
-        line-height: 1.5;
+        line-height:
+            1.5;
 
-        margin-bottom: 20px;
+        margin-bottom:
+            20px;
     }
 
 
-    /* =========================
-       MAIN TITLE
-    ========================= */
+    /* TITLE */
 
     h1 {
-        font-size: 34px;
+        font-size:
+            34px;
 
-        line-height: 1.15;
+        line-height:
+            1.15;
 
-        letter-spacing: -0.8px;
-
-        margin: 0;
-
-        word-break: normal;
-
-        overflow-wrap: normal;
+        letter-spacing:
+            -0.8px;
     }
 
 
     h1 span {
-        display: block;
+        font-size:
+            42px;
 
-        font-size: 42px;
+        line-height:
+            1.05;
 
-        line-height: 1.05;
-
-        margin-top: 5px;
+        margin-top:
+            5px;
     }
 
 
-    /* =========================
-       MESSAGE
-    ========================= */
+    /* MESSAGE */
 
     .message {
-        width: 100%;
+        width:
+            100%;
 
-        max-width: 320px;
+        max-width:
+            320px;
 
-        margin: 22px auto;
+        margin:
+            22px auto;
 
-        font-size: 13px;
+        font-size:
+            13px;
 
-        line-height: 1.7;
+        line-height:
+            1.7;
+
+        text-align:
+            left;
     }
 
 
-    /* =========================
-       BUTTON
-    ========================= */
+    .message-little {
+        font-size:
+            11px;
+
+        line-height:
+            1.6;
+    }
+
+
+    /* BUTTON */
 
     button {
-        margin-top: 5px;
+        margin-top:
+            5px;
 
-        padding: 14px 23px;
+        padding:
+            14px 23px;
 
-        font-size: 11px;
+        font-size:
+            11px;
 
-        border-radius: 50px;
+        border-radius:
+            50px;
 
-        max-width: 100%;
+        max-width:
+            100%;
     }
 
 
-    /* =========================
-       FLOATING HEARTS
-    ========================= */
+    /* FLOATING */
 
     .floating-hearts span {
-        font-size: 45px;
+        font-size:
+            45px;
     }
 
 
-    /* =========================
-       MUSIC
-    ========================= */
+    /* BUTTON GROUP */
+
+    .page-buttons {
+        flex-wrap:
+            wrap;
+
+        gap:
+            9px;
+
+        margin-top:
+            20px;
+    }
+
+
+    /* MUSIC */
 
     .music-card {
-        padding: 35px 18px;
+        padding:
+            35px 18px 35px 55px;
     }
+
 
     .spotify-box {
-        width: 100%;
-        margin: 18px auto;
+        width:
+            100%;
+
+        margin:
+            18px auto;
     }
 
-    .spotify-box iframe {
-        width: 100%;
-        height: 152px;
-    }
 
-
-    /* =========================
-       MEMORY
-    ========================= */
+    /* MEMORY */
 
     .memory-list {
-        width: 100%;
-        margin: 18px auto;
+        width:
+            100%;
+
+        margin:
+            18px auto;
     }
+
 
     .memory-item {
-        padding: 13px;
+        padding:
+            13px;
 
-        margin-bottom: 10px;
+        margin-bottom:
+            10px;
 
-        border-radius: 15px;
+        border-radius:
+            15px;
+
+        gap:
+            9px;
     }
+
 
     .memory-item p {
-        font-size: 12px;
+        font-size:
+            12px;
 
-        line-height: 1.6;
+        line-height:
+            1.6;
     }
 
 
-    /* =========================
-       QUIZ
-    ========================= */
+    /* QUIZ */
 
     .quiz-card {
-        padding: 35px 20px;
+        padding:
+            35px 20px 35px 55px;
     }
+
 
     .quiz-number {
-        font-size: 11px;
+        font-size:
+            11px;
 
-        margin-bottom: 15px;
+        margin-bottom:
+            15px;
     }
+
 
     .quiz-card h2 {
-        font-size: 24px;
+        font-size:
+            24px;
 
-        line-height: 1.3;
+        line-height:
+            1.3;
 
-        margin-bottom: 20px;
+        margin-bottom:
+            20px;
     }
 
 
-    /* =========================
-       TEXTAREA
-    ========================= */
+    /* TEXTAREA */
 
     .answer-container {
-        width: 100%;
+        width:
+            100%;
 
-        margin: 15px 0 20px;
-
-        position: relative;
+        margin:
+            15px 0 20px;
     }
+
 
     #answer {
-        width: 100%;
+        width:
+            100%;
 
-        min-height: 140px;
+        min-height:
+            140px;
 
-        padding: 15px;
+        padding:
+            15px;
 
-        padding-right: 40px;
+        padding-right:
+            40px;
 
-        border-radius: 16px;
+        border-radius:
+            16px;
 
-        font-size: 13px;
+        font-size:
+            13px;
 
-        line-height: 1.6;
-
-        box-sizing: border-box;
-
-        resize: vertical;
+        line-height:
+            1.6;
     }
 
 
-    /* =========================
-       LAST PAGE
-    ========================= */
+    /* =================================================
+       LETTER COVER MOBILE
+    ================================================= */
 
-    .big-heart {
-        font-size: 48px;
+    .letter-cover {
+        width:
+            100%;
 
-        margin-bottom: 12px;
+        max-width:
+            390px;
+
+        min-height:
+            540px;
+
+        padding:
+            60px 25px 60px 55px;
     }
 
-    #page6 h1 {
-        font-size: 30px;
 
-        line-height: 1.2;
+    .letter-cover::before {
+        left:
+            38px;
     }
 
-    #page6 h1 span {
-        font-size: 36px;
+
+    .letter-decoration {
+        top:
+            25px;
+
+        left:
+            14px;
     }
 
-    #page6 .message {
-        font-size: 12px;
 
-        line-height: 1.75;
-
-        max-width: 330px;
+    .letter-cover h1 {
+        font-size:
+            38px;
     }
+
+
+    .letter-small-title {
+        font-size:
+            8px;
+
+        letter-spacing:
+            2.5px;
+    }
+
+
+    .letter-hint {
+        font-size:
+            9px;
+    }
+
+
+    /* =================================================
+       LETTER CONTENT MOBILE
+    ================================================= */
+
+    .wide-card {
+        width:
+            100%;
+
+        max-width:
+            390px;
+
+        max-height:
+            88svh;
+
+        padding:
+            40px 18px 45px 55px;
+
+        overflow-y:
+            auto;
+
+        overflow-x:
+            hidden;
+
+        background-attachment:
+            local;
+    }
+
+
+    #page6 .wide-card::after {
+        display:
+            none;
+    }
+
+
+    #page6 .wide-card::before {
+        left:
+            38px;
+    }
+
+
+    .wide-card h1 {
+        font-size:
+            30px;
+
+        line-height:
+            1.2;
+    }
+
+
+    .wide-card .message {
+        width:
+            100%;
+
+        max-width:
+            none;
+
+        margin:
+            22px auto;
+
+        font-size:
+            12px;
+
+        line-height:
+            1.7;
+
+        text-align:
+            left;
+    }
+
+
+    .wide-card .page-buttons {
+        flex-wrap:
+            wrap;
+
+        gap:
+            10px;
+
+        margin-top:
+            20px;
+    }
+
+
+    .wide-card .page-buttons button {
+        font-size:
+            10px;
+
+        padding:
+            12px 18px;
+    }
+
+
+    /* FINAL QUESTION */
+
+    .final-question {
+        margin:
+            25px auto 20px;
+    }
+
+
+    .final-question-title {
+        font-size:
+            13px;
+
+        line-height:
+            1.5;
+    }
+
+
+    .radio-options {
+        gap:
+            5px;
+    }
+
+
+    .radio-option {
+        padding:
+            5px 8px;
+
+        font-size:
+            9px;
+    }
+
 }
 
 
@@ -1371,46 +2226,132 @@ button:hover span {
 @media (max-width: 380px) {
 
     .page {
-        padding: 60px 10px 20px;
+        padding:
+            60px 10px 20px;
     }
+
 
     .card {
-        max-width: 360px;
+        max-width:
+            360px;
 
-        padding: 32px 20px;
-
-        border-radius: 25px;
+        padding:
+            32px 18px 32px 50px;
     }
+
+
+    .card::before {
+        left:
+            35px;
+    }
+
+
+    .card::after {
+        left:
+            7px;
+
+        width:
+            19px;
+
+        background-size:
+            19px 36px;
+    }
+
 
     .tiny-heart {
-        font-size: 27px;
+        font-size:
+            27px;
 
-        margin-bottom: 17px;
+        margin-bottom:
+            17px;
     }
+
 
     .small-title {
-        font-size: 7px;
+        font-size:
+            7px;
 
-        letter-spacing: 2px;
+        letter-spacing:
+            2px;
 
-        margin-bottom: 17px;
+        margin-bottom:
+            17px;
     }
+
 
     h1 {
-        font-size: 30px;
+        font-size:
+            30px;
     }
+
 
     h1 span {
-        font-size: 38px;
+        font-size:
+            38px;
     }
+
 
     .message {
-        font-size: 12px;
+        font-size:
+            12px;
 
-        margin: 19px auto;
+        margin:
+            19px auto;
     }
+
 
     button {
-        padding: 13px 20px;
+        padding:
+            13px 20px;
     }
+
+
+    /* LETTER COVER */
+
+    .letter-cover {
+        max-width:
+            360px;
+
+        min-height:
+            500px;
+
+        padding:
+            50px 18px 50px 50px;
+    }
+
+
+    .letter-cover::before {
+        left:
+            35px;
+    }
+
+
+    .letter-cover h1 {
+        font-size:
+            34px;
+    }
+
+
+    /* LETTER */
+
+    .wide-card {
+        padding:
+            35px 15px 40px 50px;
+    }
+
+
+    .wide-card .message {
+        font-size:
+            11.5px;
+
+        line-height:
+            1.65;
+    }
+
+
+    #page6 .wide-card::before {
+        left:
+            35px;
+    }
+
 }

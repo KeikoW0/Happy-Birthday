@@ -319,6 +319,28 @@ document.querySelectorAll('input[name="girlfriend"]').forEach((radio) => {
 
 });
 
+/* =========================
+   INTERACTIVE LETTER
+========================= */
+
+function openLetter() {
+
+    const letterCover =
+        document.getElementById("letterCover");
+
+    const letterContent =
+        document.getElementById("letterContent");
+
+    if (!letterContent) {
+        return;
+    }
+
+    letterContent.classList.add("open");
+
+    if (letterCover) {
+        letterCover.style.display = "none";
+    }
+}
 
 /* =========================
    SPOTIFY
@@ -352,6 +374,8 @@ window.nextQuestion =
 window.openSpotify =
     openSpotify;
 
+window.openLetter = openLetter;
+
 
 /* =========================
    TEST
@@ -360,3 +384,4 @@ window.openSpotify =
 console.log(
     "script.js + Firebase berhasil dimuat!"
 );
+
