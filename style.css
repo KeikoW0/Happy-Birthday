@@ -1661,20 +1661,605 @@ button:hover span {
 
 
 /* =====================================================
-   MOBILE FINAL FIX
-   No notebook side line
-   Full text width
-   Keep existing font sizes
+   MOBILE
 ===================================================== */
 
 @media (max-width: 600px) {
+
+    /* =========================
+       HTML / BODY
+    ========================= */
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+
+    body {
+        min-height: 100svh;
+    }
+
 
     /* =========================
        PAGE
     ========================= */
 
     .page {
-        padding: 65px 10px 25px;
+        width: 100%;
+        height: 100svh;
+
+        padding:
+            65px
+            14px
+            25px;
+
+        display: none;
+
+        justify-content: center;
+        align-items: center;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .page.active {
+        display: flex;
+    }
+
+
+    /* =========================
+       PAGE INDICATOR
+    ========================= */
+
+    .page-indicator {
+        top: 20px;
+        right: 20px;
+
+        font-size: 11px;
+    }
+
+
+    /* =================================================
+       CARD
+    ================================================= */
+
+    .card {
+        width: 100%;
+        max-width: 390px;
+
+        padding:
+            38px
+            22px
+            38px
+            55px;
+
+        margin: auto;
+
+        border-radius: 4px;
+
+        background-attachment: local;
+    }
+
+
+    /* =================================================
+       NOTEBOOK RED LINE
+       PAGE 1–5
+    ================================================= */
+
+    .card::before {
+        display: block;
+
+        top: 0;
+        bottom: 0;
+
+        left: 38px;
+
+        width: 1px;
+    }
+
+
+    /* =================================================
+       NOTEBOOK HOLES
+       PAGE 1–5
+    ================================================= */
+
+    .card::after {
+        display: block;
+
+        top: 25px;
+        bottom: 25px;
+
+        left: 8px;
+
+        width: 20px;
+
+        background-size:
+            20px 38px;
+    }
+
+
+    /* =================================================
+       CARD CONTENT
+    ================================================= */
+
+    .card > * {
+        position: relative;
+        z-index: 3;
+    }
+
+
+    /* =================================================
+       HEART
+    ================================================= */
+
+    .tiny-heart {
+        font-size: 30px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .big-heart {
+        font-size: 48px;
+
+        margin-bottom: 12px;
+    }
+
+
+    /* =================================================
+       SMALL TITLE
+    ================================================= */
+
+    .small-title {
+        font-size: 8px;
+
+        letter-spacing: 2.5px;
+
+        line-height: 1.5;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* =================================================
+       TITLE
+    ================================================= */
+
+    h1 {
+        font-size: 34px;
+
+        line-height: 1.15;
+
+        letter-spacing: -0.8px;
+    }
+
+
+    h1 span {
+        font-size: 42px;
+
+        line-height: 1.05;
+
+        margin-top: 5px;
+    }
+
+
+    /* =================================================
+       MESSAGE
+    ================================================= */
+
+    .message {
+        width: 100%;
+
+        max-width: 320px;
+
+        margin:
+            22px
+            auto;
+
+        font-size: 13px;
+
+        line-height: 1.7;
+
+        text-align: left;
+    }
+
+
+    .message-little {
+        width: 100%;
+
+        max-width: 320px;
+
+        font-size: 11px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =================================================
+       BUTTON
+    ================================================= */
+
+    button {
+        margin-top: 5px;
+
+        padding:
+            14px
+            23px;
+
+        font-size: 11px;
+
+        border-radius: 50px;
+
+        max-width: 100%;
+    }
+
+
+    /* =================================================
+       BUTTON GROUP
+    ================================================= */
+
+    .page-buttons {
+        flex-wrap: wrap;
+
+        gap: 9px;
+
+        margin-top: 20px;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /* =================================================
+       FLOATING HEARTS
+    ================================================= */
+
+    .floating-hearts span {
+        font-size: 45px;
+    }
+
+
+    /* =================================================
+       MUSIC
+    ================================================= */
+
+    .music-card {
+        padding:
+            35px
+            18px
+            35px
+            55px;
+    }
+
+
+    .spotify-box {
+        width: 100%;
+
+        margin:
+            18px
+            auto;
+    }
+
+
+    .spotify-box iframe {
+        width: 100%;
+    }
+
+
+    /* =================================================
+       MEMORY
+    ================================================= */
+
+    .memory-list {
+        width: 100%;
+
+        margin:
+            18px
+            auto;
+    }
+
+
+    .memory-item {
+        width: 100%;
+
+        padding: 13px;
+
+        margin-bottom: 10px;
+
+        border-radius: 15px;
+
+        gap: 9px;
+    }
+
+
+    .memory-item p {
+        font-size: 12px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =================================================
+       QUIZ
+    ================================================= */
+
+    .quiz-card {
+        padding:
+            35px
+            20px
+            35px
+            55px;
+    }
+
+
+    .quiz-number {
+        font-size: 11px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .quiz-card h2 {
+        font-size: 24px;
+
+        line-height: 1.3;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* =================================================
+       TEXTAREA
+    ================================================= */
+
+    .answer-container {
+        width: 100%;
+
+        margin:
+            15px
+            0
+            20px;
+    }
+
+
+    #answer {
+        width: 100%;
+
+        min-height: 140px;
+
+        padding: 15px;
+
+        padding-right: 40px;
+
+        border-radius: 16px;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =================================================
+       FINAL QUESTION
+    ================================================= */
+
+    .final-question {
+        width: 100%;
+
+        margin:
+            25px
+            auto
+            20px;
+    }
+
+
+    .final-question-title {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+
+    .radio-options {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 5px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .radio-option {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        padding:
+            5px
+            5px;
+
+        font-size: 9px;
+
+        text-align: center;
+    }
+
+
+    /* =================================================
+       LETTER COVER
+    ================================================= */
+
+    .letter-cover {
+        width: 100%;
+
+        max-width: 390px;
+
+        min-height: 540px;
+
+        padding:
+            60px
+            25px
+            60px
+            55px;
+    }
+
+
+    /* LETTER COVER LINE */
+
+    .letter-cover::before {
+        display: block;
+
+        left: 38px;
+    }
+
+
+    .letter-decoration {
+        top: 25px;
+
+        left: 14px;
+    }
+
+
+    .letter-cover h1 {
+        font-size: 38px;
+    }
+
+
+    .letter-small-title {
+        font-size: 8px;
+
+        letter-spacing: 2.5px;
+    }
+
+
+    .letter-hint {
+        font-size: 9px;
+    }
+
+
+    /* =================================================
+       PAGE 6 — LONG LETTER
+       NO NOTEBOOK LINE / NO HOLES
+    ================================================= */
+
+    .wide-card {
+        width: 100%;
+
+        max-width: 390px;
+
+        max-height: 88svh;
+
+        padding:
+            40px
+            18px
+            45px
+            18px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        background-attachment: local;
+    }
+
+
+    /* REMOVE RED LINE */
+
+    #page6 .wide-card::before {
+        display: none;
+    }
+
+
+    /* REMOVE HOLES */
+
+    #page6 .wide-card::after {
+        display: none;
+    }
+
+
+    /* =================================================
+       PAGE 6 TITLE
+    ================================================= */
+
+    .wide-card h1 {
+        width: 100%;
+
+        font-size: 30px;
+
+        line-height: 1.2;
+    }
+
+
+    /* =================================================
+       PAGE 6 MESSAGE
+    ================================================= */
+
+    .wide-card .message {
+        width: 100%;
+
+        max-width: none;
+
+        margin:
+            22px
+            auto;
+
+        font-size: 12px;
+
+        line-height: 1.7;
+
+        text-align: left;
+    }
+
+
+    /* =================================================
+       PAGE 6 BUTTONS
+    ================================================= */
+
+    .wide-card .page-buttons {
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        margin-top: 20px;
+    }
+
+
+    .wide-card .page-buttons button {
+        font-size: 10px;
+
+        padding:
+            12px
+            18px;
+    }
+}
+
+
+/* =====================================================
+   SMALL PHONE
+   380px AND BELOW
+===================================================== */
+
+@media (max-width: 380px) {
+
+    /* =========================
+       PAGE
+    ========================= */
+
+    .page {
+        padding:
+            60px
+            10px
+            20px;
     }
 
 
@@ -1682,46 +2267,84 @@ button:hover span {
        CARD
     ========================= */
 
-    .card,
-    .quiz-card,
-    .music-card,
-    .wide-card,
-    .letter-cover {
-
+    .card {
         width: 100%;
-        max-width: 390px;
 
-        padding-left: 18px;
-        padding-right: 18px;
+        max-width: 360px;
+
+        padding:
+            32px
+            18px
+            32px
+            50px;
     }
 
 
     /* =========================
-       REMOVE NOTEBOOK LINE
+       NOTEBOOK LINE
     ========================= */
 
-    .card::before,
-    .card::after,
-    .wide-card::before,
-    .wide-card::after,
-    .letter-cover::before {
+    .card::before {
+        display: block;
 
-        display: none;
+        left: 35px;
     }
 
 
     /* =========================
-       CONTENT FULL WIDTH
+       NOTEBOOK HOLES
     ========================= */
 
-    .card > *,
-    .quiz-card > *,
-    .music-card > *,
-    .wide-card > *,
-    .letter-cover > * {
+    .card::after {
+        display: block;
 
-        width: 100%;
-        max-width: 100%;
+        top: 25px;
+        bottom: 25px;
+
+        left: 7px;
+
+        width: 19px;
+
+        background-size:
+            19px 36px;
+    }
+
+
+    /* =========================
+       HEART
+    ========================= */
+
+    .tiny-heart {
+        font-size: 27px;
+
+        margin-bottom: 17px;
+    }
+
+
+    /* =========================
+       SMALL TITLE
+    ========================= */
+
+    .small-title {
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 17px;
+    }
+
+
+    /* =========================
+       TITLE
+    ========================= */
+
+    h1 {
+        font-size: 30px;
+    }
+
+
+    h1 span {
+        font-size: 38px;
     }
 
 
@@ -1729,119 +2352,27 @@ button:hover span {
        MESSAGE
     ========================= */
 
-    .message,
-    .message-little,
-    .wide-card .message {
-
+    .message {
         width: 100%;
+
         max-width: 100%;
 
-        margin-left: 0;
-        margin-right: 0;
+        font-size: 12px;
+
+        margin:
+            19px
+            auto;
     }
 
 
     /* =========================
-       MEMORY
+       BUTTON
     ========================= */
 
-    .memory-list {
-
-        width: 100%;
-        max-width: 100%;
-
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-
-    .memory-item {
-
-        width: 100%;
-    }
-
-
-    /* =========================
-       QUIZ
-    ========================= */
-
-    .answer-container {
-
-        width: 100%;
-        max-width: 100%;
-
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-
-    #answer {
-
-        width: 100%;
-        max-width: 100%;
-    }
-
-
-    /* =========================
-       SPOTIFY
-    ========================= */
-
-    .spotify-box {
-
-        width: 100%;
-        max-width: 100%;
-
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-
-    .spotify-box iframe {
-
-        width: 100%;
-    }
-
-
-    /* =========================
-       RADIO BUTTON
-    ========================= */
-
-    .final-question {
-        width: 100%;
-        max-width: 100%;
-    }
-
-
-    .radio-options {
-
-        width: 100%;
-
-        justify-content: center;
-        align-items: center;
-
-        gap: 6px;
-    }
-
-
-    .radio-option {
-
-        justify-content: center;
-        align-items: center;
-
-        text-align: center;
-    }
-
-
-    /* =========================
-       BUTTONS
-    ========================= */
-
-    .page-buttons {
-
-        width: 100%;
-
-        justify-content: center;
-        align-items: center;
+    button {
+        padding:
+            13px
+            20px;
     }
 
 
@@ -1850,99 +2381,79 @@ button:hover span {
     ========================= */
 
     .letter-cover {
-
         width: 100%;
-        max-width: 390px;
 
-        padding-left: 18px;
-        padding-right: 18px;
+        max-width: 360px;
+
+        min-height: 500px;
+
+        padding:
+            50px
+            18px
+            50px
+            50px;
     }
 
 
-    .letter-cover > * {
+    .letter-cover::before {
+        display: block;
 
-        width: 100%;
-        max-width: 100%;
+        left: 35px;
+    }
+
+
+    .letter-cover h1 {
+        font-size: 34px;
     }
 
 
     /* =========================
-       LETTER CONTENT
+       PAGE 6
+       NO LINE / NO HOLES
     ========================= */
 
     .wide-card {
-
         width: 100%;
-        max-width: 390px;
 
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-
-    .wide-card .message {
-
-        width: 100%;
-        max-width: 100%;
-
-        text-align: left;
-    }
-}
-
-
-/* =====================================================
-   SMALL PHONE
-===================================================== */
-
-@media (max-width: 380px) {
-
-    .page {
-
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-
-
-    .card,
-    .quiz-card,
-    .music-card,
-    .wide-card,
-    .letter-cover {
-
-        width: 100%;
         max-width: 360px;
 
-        padding-left: 15px;
-        padding-right: 15px;
+        padding:
+            35px
+            15px
+            40px
+            15px;
     }
 
 
-    .card::before,
-    .card::after,
-    .wide-card::before,
-    .wide-card::after,
-    .letter-cover::before {
-
+    #page6 .wide-card::before,
+    #page6 .wide-card::after {
         display: none;
     }
 
 
-    .message,
-    .message-little,
-    .wide-card .message,
-    .memory-list,
-    .answer-container,
-    .spotify-box {
-
+    .wide-card .message {
         width: 100%;
+
         max-width: 100%;
+
+        font-size: 11.5px;
+
+        line-height: 1.65;
     }
 
 
-    .radio-options {
+    /* =========================
+       RADIO
+    ========================= */
 
+    .radio-options {
         width: 100%;
 
         justify-content: center;
+    }
+
+
+    .radio-option {
+        text-align: center;
     }
 }
