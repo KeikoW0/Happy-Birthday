@@ -1677,7 +1677,6 @@ button:hover span {
         overflow: hidden;
     }
 
-
     body {
         min-height: 100svh;
     }
@@ -1707,7 +1706,6 @@ button:hover span {
         -webkit-overflow-scrolling: touch;
     }
 
-
     .page.active {
         display: flex;
     }
@@ -1726,7 +1724,8 @@ button:hover span {
 
 
     /* =================================================
-       CARD
+       NORMAL CARD
+       PAGE 1–5
     ================================================= */
 
     .card {
@@ -1747,10 +1746,10 @@ button:hover span {
     }
 
 
-    /* =================================================
+    /* =========================
        NOTEBOOK RED LINE
        PAGE 1–5
-    ================================================= */
+    ========================= */
 
     .card::before {
         display: block;
@@ -1764,10 +1763,10 @@ button:hover span {
     }
 
 
-    /* =================================================
+    /* =========================
        NOTEBOOK HOLES
        PAGE 1–5
-    ================================================= */
+    ========================= */
 
     .card::after {
         display: block;
@@ -1800,14 +1799,11 @@ button:hover span {
 
     .tiny-heart {
         font-size: 30px;
-
         margin-bottom: 20px;
     }
 
-
     .big-heart {
         font-size: 48px;
-
         margin-bottom: 12px;
     }
 
@@ -1839,7 +1835,6 @@ button:hover span {
         letter-spacing: -0.8px;
     }
 
-
     h1 span {
         font-size: 42px;
 
@@ -1859,8 +1854,7 @@ button:hover span {
         max-width: 320px;
 
         margin:
-            22px
-            auto;
+            22px auto;
 
         font-size: 13px;
 
@@ -1868,7 +1862,6 @@ button:hover span {
 
         text-align: left;
     }
-
 
     .message-little {
         width: 100%;
@@ -1937,15 +1930,12 @@ button:hover span {
             55px;
     }
 
-
     .spotify-box {
         width: 100%;
 
         margin:
-            18px
-            auto;
+            18px auto;
     }
-
 
     .spotify-box iframe {
         width: 100%;
@@ -1960,10 +1950,8 @@ button:hover span {
         width: 100%;
 
         margin:
-            18px
-            auto;
+            18px auto;
     }
-
 
     .memory-item {
         width: 100%;
@@ -1976,7 +1964,6 @@ button:hover span {
 
         gap: 9px;
     }
-
 
     .memory-item p {
         font-size: 12px;
@@ -1997,13 +1984,11 @@ button:hover span {
             55px;
     }
 
-
     .quiz-number {
         font-size: 11px;
 
         margin-bottom: 15px;
     }
-
 
     .quiz-card h2 {
         font-size: 24px;
@@ -2026,7 +2011,6 @@ button:hover span {
             0
             20px;
     }
-
 
     #answer {
         width: 100%;
@@ -2053,18 +2037,15 @@ button:hover span {
         width: 100%;
 
         margin:
-            25px
-            auto
+            25px auto
             20px;
     }
-
 
     .final-question-title {
         font-size: 13px;
 
         line-height: 1.5;
     }
-
 
     .radio-options {
         width: 100%;
@@ -2078,7 +2059,6 @@ button:hover span {
 
         flex-wrap: wrap;
     }
-
 
     .radio-option {
         display: flex;
@@ -2098,6 +2078,7 @@ button:hover span {
 
     /* =================================================
        LETTER COVER
+       HAS NOTEBOOK HOLES
     ================================================= */
 
     .letter-cover {
@@ -2115,12 +2096,51 @@ button:hover span {
     }
 
 
-    /* LETTER COVER LINE */
+    /* RED LINE */
 
     .letter-cover::before {
         display: block;
 
+        top: 0;
+        bottom: 0;
+
         left: 38px;
+
+        width: 1px;
+    }
+
+
+    /* NOTEBOOK HOLES FOR COVER */
+
+    .letter-cover::after {
+        content: "";
+
+        position: absolute;
+
+        top: 28px;
+        bottom: 28px;
+
+        left: 8px;
+
+        width: 20px;
+
+        background-image:
+            radial-gradient(
+                circle,
+                rgba(180, 105, 125, 0.55) 0,
+                rgba(180, 105, 125, 0.55) 4px,
+                transparent 4.5px
+            );
+
+        background-size:
+            20px 38px;
+
+        background-repeat:
+            repeat-y;
+
+        pointer-events: none;
+
+        z-index: 1;
     }
 
 
@@ -2130,11 +2150,9 @@ button:hover span {
         left: 14px;
     }
 
-
     .letter-cover h1 {
         font-size: 38px;
     }
-
 
     .letter-small-title {
         font-size: 8px;
@@ -2142,15 +2160,15 @@ button:hover span {
         letter-spacing: 2.5px;
     }
 
-
     .letter-hint {
         font-size: 9px;
     }
 
 
     /* =================================================
-       PAGE 6 — LONG LETTER
-       NO NOTEBOOK LINE / NO HOLES
+       LETTER CONTENT / PAGE 6
+       NO NOTEBOOK LINE
+       NO NOTEBOOK HOLES
     ================================================= */
 
     .wide-card {
@@ -2210,8 +2228,7 @@ button:hover span {
         max-width: none;
 
         margin:
-            22px
-            auto;
+            22px auto;
 
         font-size: 12px;
 
@@ -2232,7 +2249,6 @@ button:hover span {
 
         margin-top: 20px;
     }
-
 
     .wide-card .page-buttons button {
         font-size: 10px;
@@ -2263,9 +2279,10 @@ button:hover span {
     }
 
 
-    /* =========================
-       CARD
-    ========================= */
+    /* =================================================
+       NORMAL CARD
+       HAS HOLES
+    ================================================= */
 
     .card {
         width: 100%;
@@ -2280,9 +2297,7 @@ button:hover span {
     }
 
 
-    /* =========================
-       NOTEBOOK LINE
-    ========================= */
+    /* RED LINE */
 
     .card::before {
         display: block;
@@ -2291,9 +2306,7 @@ button:hover span {
     }
 
 
-    /* =========================
-       NOTEBOOK HOLES
-    ========================= */
+    /* HOLES */
 
     .card::after {
         display: block;
@@ -2310,9 +2323,9 @@ button:hover span {
     }
 
 
-    /* =========================
+    /* =================================================
        HEART
-    ========================= */
+    ================================================= */
 
     .tiny-heart {
         font-size: 27px;
@@ -2321,9 +2334,9 @@ button:hover span {
     }
 
 
-    /* =========================
+    /* =================================================
        SMALL TITLE
-    ========================= */
+    ================================================= */
 
     .small-title {
         font-size: 7px;
@@ -2334,23 +2347,22 @@ button:hover span {
     }
 
 
-    /* =========================
+    /* =================================================
        TITLE
-    ========================= */
+    ================================================= */
 
     h1 {
         font-size: 30px;
     }
-
 
     h1 span {
         font-size: 38px;
     }
 
 
-    /* =========================
+    /* =================================================
        MESSAGE
-    ========================= */
+    ================================================= */
 
     .message {
         width: 100%;
@@ -2360,14 +2372,13 @@ button:hover span {
         font-size: 12px;
 
         margin:
-            19px
-            auto;
+            19px auto;
     }
 
 
-    /* =========================
+    /* =================================================
        BUTTON
-    ========================= */
+    ================================================= */
 
     button {
         padding:
@@ -2376,9 +2387,10 @@ button:hover span {
     }
 
 
-    /* =========================
+    /* =================================================
        LETTER COVER
-    ========================= */
+       HAS HOLES
+    ================================================= */
 
     .letter-cover {
         width: 100%;
@@ -2395,6 +2407,8 @@ button:hover span {
     }
 
 
+    /* RED LINE */
+
     .letter-cover::before {
         display: block;
 
@@ -2402,15 +2416,45 @@ button:hover span {
     }
 
 
-    .letter-cover h1 {
-        font-size: 34px;
+    /* HOLES */
+
+    .letter-cover::after {
+        content: "";
+
+        position: absolute;
+
+        top: 25px;
+        bottom: 25px;
+
+        left: 7px;
+
+        width: 19px;
+
+        background-image:
+            radial-gradient(
+                circle,
+                rgba(180, 105, 125, 0.55) 0,
+                rgba(180, 105, 125, 0.55) 4px,
+                transparent 4.5px
+            );
+
+        background-size:
+            19px 36px;
+
+        background-repeat:
+            repeat-y;
+
+        pointer-events: none;
+
+        z-index: 1;
     }
 
 
-    /* =========================
+    /* =================================================
        PAGE 6
-       NO LINE / NO HOLES
-    ========================= */
+       NO HOLES
+       NO RED LINE
+    ================================================= */
 
     .wide-card {
         width: 100%;
@@ -2425,11 +2469,18 @@ button:hover span {
     }
 
 
-    #page6 .wide-card::before,
+    #page6 .wide-card::before {
+        display: none;
+    }
+
     #page6 .wide-card::after {
         display: none;
     }
 
+
+    /* =================================================
+       PAGE 6 MESSAGE
+    ================================================= */
 
     .wide-card .message {
         width: 100%;
@@ -2442,16 +2493,15 @@ button:hover span {
     }
 
 
-    /* =========================
+    /* =================================================
        RADIO
-    ========================= */
+    ================================================= */
 
     .radio-options {
         width: 100%;
 
         justify-content: center;
     }
-
 
     .radio-option {
         text-align: center;
