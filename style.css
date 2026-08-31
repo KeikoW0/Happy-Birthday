@@ -642,6 +642,31 @@ h1 span {
     font-size: 15px;
 }
 
+.memory-card {
+    max-height: 88vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(158, 79, 105, 0.35) transparent;
+}
+
+.memory-card::-webkit-scrollbar {
+    width: 5px;
+}
+
+.memory-card::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.memory-card::-webkit-scrollbar-thumb {
+    background: rgba(158, 79, 105, 0.30);
+    border-radius: 10px;
+}
+
+.memory-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(158, 79, 105, 0.50);
+}
+
 .song-play-btn {
     flex-shrink: 0;
     margin: 0;
@@ -2046,6 +2071,13 @@ button:hover span {
             18px auto;
     }
 
+    .memory-card {
+        max-height: 74svh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 18px;
+    }
+
     .memory-item {
         width: 100%;
 
@@ -2062,6 +2094,13 @@ button:hover span {
         font-size: 12px;
 
         line-height: 1.6;
+    }
+
+    .song-row strong,
+    .song-description,
+    .song-time-row,
+    .song-time-row strong {
+        font-size: 13px;
     }
 
 
