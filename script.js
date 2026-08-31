@@ -476,6 +476,76 @@ window.openSpotify =
 window.openLetter =
     openLetter;
 
+/* =========================
+   LOCAL MP3 CLIP PLAYER
+========================= */
+
+let activeClipAudio = null;
+
+function stopActiveClip() {
+
+    if (activeClipAudio) {
+        activeClipAudio.pause();
+        activeClipAudio.currentTime = 0;
+        activeClipAudio = null;
+    }
+
+    document.querySelectorAll(".song-play-btn.is-playing").forEach((button) => {
+        button.classList.remove("is-playing");
+        button.textContent = "▶";
+    });
+}
+
+function playSongClip(filePath, startSeconds, endSeconds, button) {
+
+    if (!filePath || !button) {
+        return;
+    }
+
+    if (activeClipAudio && activeClipAudio.src.includes(filePath)) {
+        stopActiveClip();
+        return;
+    }
+
+    stopActiveClip();
+
+    const audio = new Audio(filePath);
+    audio.preload = "auto";
+
+    audio.addEventListener("timeupdate", () => {
+        if (audio.currentTime >= endSeconds) {
+            audio.pause();
+            audio.currentTime = startSeconds;
+            button.classList.remove("is-playing");
+            button.textContent = "▶";
+            activeClipAudio = null;
+        }
+    });
+
+    audio.addEventListener("ended", () => {
+        button.classList.remove("is-playing");
+        button.textContent = "▶";
+        activeClipAudio = null;
+    });
+
+    audio.currentTime = startSeconds;
+    audio.play();
+
+    button.classList.add("is-playing");
+    button.textContent = "❚❚";
+    activeClipAudio = audio;
+}
+
+document.querySelectorAll(".song-play-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+        const filePath = button.dataset.file;
+        const startSeconds = Number(button.dataset.start || 0);
+        const endSeconds = Number(button.dataset.end || startSeconds + 10);
+
+        playSongClip(filePath, startSeconds, endSeconds, button);
+    });
+});
+
 
 /* =========================
    TEST

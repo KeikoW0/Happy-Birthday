@@ -594,6 +594,99 @@ h1 span {
 }
 
 
+.song-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin: 16px 0 10px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.song-row strong {
+    font-weight: 700;
+    color: #6d394c;
+    font-size: 15px;
+}
+
+.song-item {
+    margin: 0 0 18px;
+    text-align: left;
+}
+
+.song-description {
+    margin: 0 0 8px;
+    color: #6d394c;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.song-time-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 6px;
+    color: #6d394c;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.song-time-row strong {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.song-play-btn {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f5d5df;
+    color: #9e4f69;
+    border: 1px solid rgba(158, 79, 105, 0.35);
+    box-shadow: none;
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+    transition: 0.25s ease;
+    position: relative;
+}
+
+.song-play-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%, -50%);
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid #9e4f69;
+}
+
+.song-play-btn:hover {
+    transform: translateY(-1px) scale(1.03);
+    background: #f1c7d8;
+    box-shadow: none;
+}
+
+.song-play-btn.is-playing {
+    background: #9e4f69;
+}
+
+.song-play-btn.is-playing::before {
+    border-left-color: white;
+}
+
 /* =====================================================
    BUTTON
 ===================================================== */
