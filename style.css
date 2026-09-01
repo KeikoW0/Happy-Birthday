@@ -698,6 +698,11 @@ h1 span {
     border-left: 8px solid #9e4f69;
 }
 
+.song-play-btn::after {
+    content: "";
+    display: none;
+}
+
 .song-play-btn:hover {
     transform: translateY(-1px) scale(1.03);
     background: #f1c7d8;
@@ -708,8 +713,26 @@ h1 span {
     background: #9e4f69;
 }
 
+.song-play-btn.is-playing::before,
+.song-play-btn.is-playing::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 4px;
+    height: 10px;
+    background: #fff;
+    border: none;
+    border-radius: 2px;
+    transform: translateY(-50%);
+}
+
 .song-play-btn.is-playing::before {
-    border-left-color: white;
+    left: 38%;
+}
+
+.song-play-btn.is-playing::after {
+    right: 38%;
 }
 
 /* =====================================================

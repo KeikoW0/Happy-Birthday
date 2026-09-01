@@ -476,11 +476,13 @@ window.openSpotify =
 window.openLetter =
     openLetter;
 
+
 /* =========================
    LOCAL MP3 CLIP PLAYER
 ========================= */
 
 let activeClipAudio = null;
+
 
 function stopActiveClip() {
 
@@ -490,61 +492,163 @@ function stopActiveClip() {
         activeClipAudio = null;
     }
 
-    document.querySelectorAll(".song-play-btn.is-playing").forEach((button) => {
-        button.classList.remove("is-playing");
-        button.textContent = "▶";
-    });
+    document
+        .querySelectorAll(".song-play-btn.is-playing")
+        .forEach((button) => {
+
+            button.classList.remove("is-playing");
+            button.textContent = "";
+
+        });
 }
 
-function playSongClip(filePath, startSeconds, endSeconds, button) {
+
+function playSongClip(
+    filePath,
+    startSeconds,
+    endSeconds,
+    button
+) {
 
     if (!filePath || !button) {
         return;
     }
 
-    if (activeClipAudio && activeClipAudio.src.includes(filePath)) {
+
+    if (
+        activeClipAudio &&
+        activeClipAudio.src.includes(filePath)
+    ) {
+
         stopActiveClip();
         return;
     }
 
+
     stopActiveClip();
 
-    const audio = new Audio(filePath);
+
+    const audio =
+        new Audio(filePath);
+
     audio.preload = "auto";
 
-    audio.addEventListener("timeupdate", () => {
-        if (audio.currentTime >= endSeconds) {
-            audio.pause();
-            audio.currentTime = startSeconds;
-            button.classList.remove("is-playing");
-            button.textContent = "▶";
-            activeClipAudio = null;
+
+    audio.addEventListener(
+        "timeupdate",
+        () => {
+
+            /*
+               Hanya berhenti berdasarkan
+               endSeconds kalau data-end
+               memang tersedia.
+            */
+
+            if (
+                endSeconds !== null &&
+                audio.currentTime >= endSeconds
+            ) {
+
+                audio.pause();
+
+                audio.currentTime =
+                    startSeconds;
+
+                button.classList.remove(
+                    "is-playing"
+                );
+
+                button.textContent =
+                    "";
+
+                activeClipAudio =
+                    null;
+            }
+
         }
-    });
+    );
 
-    audio.addEventListener("ended", () => {
-        button.classList.remove("is-playing");
-        button.textContent = "▶";
-        activeClipAudio = null;
-    });
 
-    audio.currentTime = startSeconds;
+    audio.addEventListener(
+        "ended",
+        () => {
+
+            button.classList.remove(
+                "is-playing"
+            );
+
+            button.textContent =
+                "";
+
+            activeClipAudio =
+                null;
+        }
+    );
+
+
+    audio.currentTime =
+        startSeconds;
+
+
     audio.play();
 
-    button.classList.add("is-playing");
-    button.textContent = "❚❚";
-    activeClipAudio = audio;
+
+    button.classList.add(
+        "is-playing"
+    );
+
+    button.textContent =
+        "";
+
+
+    activeClipAudio =
+        audio;
 }
 
-document.querySelectorAll(".song-play-btn").forEach((button) => {
-    button.addEventListener("click", () => {
-        const filePath = button.dataset.file;
-        const startSeconds = Number(button.dataset.start || 0);
-        const endSeconds = Number(button.dataset.end || startSeconds + 10);
 
-        playSongClip(filePath, startSeconds, endSeconds, button);
+document
+    .querySelectorAll(".song-play-btn")
+    .forEach((button) => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const filePath =
+                    button.dataset.file;
+
+
+                const startSeconds =
+                    Number(
+                        button.dataset.start || 0
+                    );
+
+
+                /*
+                   Kalau data-end tidak ada,
+                   endSeconds menjadi null.
+
+                   Artinya audio akan terus
+                   bermain sampai file selesai.
+                */
+
+                const endSeconds =
+                    button.dataset.end
+                        ? Number(button.dataset.end)
+                        : null;
+
+
+                playSongClip(
+                    filePath,
+                    startSeconds,
+                    endSeconds,
+                    button
+                );
+
+            }
+        );
+
     });
-});
 
 
 /* =========================
